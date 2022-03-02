@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function useAPIRequest(query) {
+function useAPIRequest(query, reqType) {
   const [ responseOBJ, setResponseOBJ ] = useState({});
   const [ loading, setLoading ] = useState(false);
   const [ error, setError ] = useState(false);
@@ -14,7 +14,8 @@ function useAPIRequest(query) {
       try {
         const response = await fetch(
           `${query}`,
-          { signal: controller.signal }
+          { signal: controller.signal,
+            method: reqType }
         );
         responseBody = await response.json();
       } catch (e) {

@@ -4,7 +4,7 @@ import {
     setAuthCookie
 } from '../../lib/auth';
 
-export default function (req, res) {
+function login(req, res) {
     if (req.method !== "POST") {
         res.status(405).send({ err: "Only POST requests supported" })
     } else {
@@ -20,3 +20,5 @@ export default function (req, res) {
         }
     }
 }
+
+export default login;
