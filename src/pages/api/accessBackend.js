@@ -14,6 +14,7 @@ async function accessBackend(req, res) {
             },
             body: JSON.stringify(body)                
         });
+        console.log(res);
         const resBody = await res.json();
         console.log(resBody);
         return resBody;
