@@ -44,10 +44,10 @@ async function accessBackend(req, res) {
         if (query_type !== "INSERT") {
             res.status(405).send({ err: "Only INSERT queries supported" })
         }
-        const query_fields = req.body.query_fields;
+        const query_fields = req.body.query_fields.join(", ");
         const query_values = req.body.query_values;
         const format_holders = req.body.query_fields.map(_x => `%s`);
-        const query_string = "INSERT INTO " + table_name + "(" + query_fields + ") VALUES (" + format_holders + ")/" + query_values.join(",");
+        const query_string = "INSERT INTO " + table_name + "(" + query_fields + ") VALUES (" + format_holders.join(" ") + ")/" + query_values.join(",");
         console.log("== query_string:", query_string);
         await fetchPostRes("https://native-plants-backend.herokuapp.com/i/" + query_string, {}).then(resBody => {
             console.log("== resBody:", resBody);
