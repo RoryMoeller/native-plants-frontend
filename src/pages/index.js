@@ -15,7 +15,7 @@ export default function Home() {
 
     return (
         <div>
-            <h1>Welcome!</h1>
+            <h1>Welcome To Seedbay</h1>
             {user.name && <p>Name: {user.name}</p>}
             {user.email && <p>Email: {user.email}</p>}
         </div>
