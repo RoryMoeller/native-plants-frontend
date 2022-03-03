@@ -33,7 +33,7 @@ async function accessBackend(req, res) {
             }
         });
         const resBody = await res.json();
-        console.log(resBody);
+//        console.log(resBody);
         return resBody;
     }
 
@@ -64,7 +64,7 @@ async function accessBackend(req, res) {
     } else if (req.method == "GET") {
         console.log("== req.query:", req.query);
         await fetchGetRes("https://native-plants-backend.herokuapp.com/q/" + req.query.query_string).then(resBody => {
-            console.log("== resBody:", resBody);
+//            console.log("== resBody:", resBody);
             res.status(200).send({
                 msg: "OK!",
                 data: resBody
@@ -93,7 +93,7 @@ async function accessBackend(req, res) {
         console.log("== req.fresh:", req.fresh);
         console.log("== req.stale:", req.stale); */
 
-        res.status(200).send({success : true});
+        //res.status(200).send({success : true});
     }
 }
 
