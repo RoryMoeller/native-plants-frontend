@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Layout from '../components/Layout';
 
 import useAPIRequest from '../hooks/useAPIRequest';
 
@@ -30,6 +31,7 @@ function Farms() {
     }
 
     return (
+        <Layout>
         <form onSubmit={postFarm}>
             <div>
                 <input
@@ -37,7 +39,7 @@ function Farms() {
                     placeholder="Farm name"
                     onChange={e => setFarmname(e.target.value)}
                     value={farmname}
-                />
+                    />
             </div>
             <div>
                 <input
@@ -45,12 +47,13 @@ function Farms() {
                     placeholder="Email"
                     // value={email}
                     // onChange={e => setEmail(e.target.value)}
-                />
+                    />
             </div>
             <div>
                 <button>Add farm</button>
             </div>
         </form>
+        </Layout>
     );
 }
 

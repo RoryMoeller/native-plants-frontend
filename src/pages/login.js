@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Layout from '../components/Layout';
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -25,6 +26,7 @@ function Login() {
     }
 
     return (
+        <Layout>
         <form onSubmit={handleLogin}>
             <div>
                 <input
@@ -32,7 +34,7 @@ function Login() {
                     placeholder="Username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
-                />
+                    />
             </div>
             <div>
                 <input
@@ -40,12 +42,13 @@ function Login() {
                     placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                />
+                    />
             </div>
             <div>
                 <button>Login</button>
             </div>
         </form>
+        </Layout>
     );
 }
 

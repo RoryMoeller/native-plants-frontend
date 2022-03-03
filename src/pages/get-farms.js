@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
+import Layout from '../components/Layout';
 
 import useAPIRequest from '../hooks/useAPIRequest';
+
+function FarmView(props){
+    return(
+    <div>
+    <p>props.farm.farm_name</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    </div>
+    )
+}
 
 function Farms() {
     const [farmname, setFarmname] = useState("");
     const [email, setEmail] = useState("");
+    const [farmList, setFarmList] = useState([]);
+
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /${farmname_to_send}`, "POST");
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/q/SELECT * FROM rev2.farms`, "GET");
     async function getFarm(e) {
@@ -22,9 +36,11 @@ function Farms() {
         )
         const resBody = await res.json();
         console.log(resBody);
+        setFarmList(resBody.data)
     }
 
     return (
+        <Layout>
         <form onSubmit={getFarm}>
             <div>
                 <input
@@ -32,7 +48,7 @@ function Farms() {
                     placeholder="Farm name"
                     onChange={e => setFarmname(e.target.value)}
                     value={farmname}
-                />
+                    />
             </div>
             <div>
                 <input
@@ -40,12 +56,16 @@ function Farms() {
                     placeholder="Email"
                     // value={email}
                     // onChange={e => setEmail(e.target.value)}
-                />
+                    />
             </div>
             <div>
                 <button>Get farms</button>
             </div>
         </form>
+        {farmList.length > 0 && farmList.map((farm)=>{
+            <FarmView farm = {farm}></FarmView>
+        })}
+        </Layout>
     );
 }
 
