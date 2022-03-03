@@ -5,11 +5,11 @@ import useAPIRequest from '../hooks/useAPIRequest';
 
 function TableView(props) {
     console.log(props)
-    const headerList = props.headers
     const dataList = props.data
-    if (headerList === undefined || dataList === undefined) {
+    if (dataList === undefined) {
         return <div></div>
     }
+    const headerList = Object.keys(props.data[0])
     const firstRow = dataList[0]
     Object.values(firstRow).map(value => {
         console.log(value)
@@ -86,7 +86,7 @@ function Farms() {
                     <button>Get farms</button>
                 </div>
             </form>
-            <TableView data={farmList.data} headers={farmList.headers}/>
+            <TableView data={farmList.data} />
         </Layout>
     );
 }
