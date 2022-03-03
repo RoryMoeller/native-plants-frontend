@@ -24,6 +24,11 @@ export default function Navbar() {
           <a>Login</a>
         </Link>
       </li>
+      <li>
+        <Link href="/get-labs">
+          <a>Get Labs</a>
+        </Link>
+      </li>
     </ul>
   )
 }
