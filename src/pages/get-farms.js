@@ -3,14 +3,38 @@ import Layout from '../components/Layout';
 
 import useAPIRequest from '../hooks/useAPIRequest';
 
-function FarmView(props){
-    return(
-    <div>
-    <p>props.farm.farm_name</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    </div>
+function TableView(props) {
+    console.log(props)
+    const headerList = props.headers
+    const dataList = props.data
+    if (headerList === undefined || dataList === undefined) {
+        return <div></div>
+    }
+    const firstRow = dataList[0]
+    Object.values(firstRow).map(value => {
+        console.log(value)
+    })
+    var bad_key = 0;
+    return (
+        <div>
+            Table
+            <table>
+                <thead>
+                    <tr>
+                        {headerList.map(header => <th key={header}>{header}</th>)}
+                    </tr>
+                </thead>
+                <tbody>
+                    {dataList.map(row => {
+                        return (
+                            <tr key={row.id}>
+                                {Object.values(row).map(value => <td key={bad_key++}>{value}</td>)}
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
     )
 }
 
@@ -25,7 +49,7 @@ function Farms() {
         e.preventDefault();
         console.log("== Adding farm with these parameters:", farmname, email);
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /'+farmname,{
-        const res = await fetch('/api/accessBackend?query_string=SELECT * FROM rev2.farms', 
+        const res = await fetch('/api/accessBackend?query_string=SELECT * FROM rev2.farms',
             {
                 method: 'GET',
                 headers: {
@@ -41,30 +65,28 @@ function Farms() {
 
     return (
         <Layout>
-        <form onSubmit={getFarm}>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Farm name"
-                    onChange={e => setFarmname(e.target.value)}
-                    value={farmname}
+            <form onSubmit={getFarm}>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Farm name"
+                        onChange={e => setFarmname(e.target.value)}
+                        value={farmname}
                     />
-            </div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Email"
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Email"
                     // value={email}
                     // onChange={e => setEmail(e.target.value)}
                     />
-            </div>
-            <div>
-                <button>Get farms</button>
-            </div>
-        </form>
-        {farmList.length > 0 && farmList.map((farm)=>{
-            <FarmView farm = {farm}></FarmView>
-        })}
+                </div>
+                <div>
+                    <button>Get farms</button>
+                </div>
+            </form>
+            <TableView data={farmList.data} headers={farmList.headers}/>
         </Layout>
     );
 }
