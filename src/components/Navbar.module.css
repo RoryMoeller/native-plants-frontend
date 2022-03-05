@@ -1,0 +1,37 @@
+.a:-webkit-any-link{
+    font-family:'Courier New', Courier, monospace;
+}
+ .linkstyle {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+  }
+
+.list{
+    list-style: none;
+    display: inline-flex;
+}
+.tables{
+    border-collapse: collapse;
+    width: 90%;
+    padding-left: 10%;
+}
+.tables tr:nth-child(even){
+    background-color: rgb(241, 216, 183);
+}
+.tables tr:hover{
+    background-color: rgb(155, 135, 135);
+}
+.tables td, .tables th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }

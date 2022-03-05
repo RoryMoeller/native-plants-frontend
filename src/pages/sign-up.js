@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
-import Link from 'next/link';
 
-function Login() {
+function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
-    async function handleLogin(e) {
+    async function handleSignup(e) {
         e.preventDefault();
         console.log("== Logging in with these credentials:", username, password);
         const res = await fetch('/api/login', {
@@ -28,7 +28,7 @@ function Login() {
 
     return (
         <Layout>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignup}>
             <div>
                 <a>Username</a>
                 <input
@@ -36,6 +36,15 @@ function Login() {
                     placeholder="Username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
+                    />
+            </div>
+            <div>
+                <a>Email</a>
+                <input
+                    type="text"
+                    placeholder="Email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     />
             </div>
             <div>
@@ -48,16 +57,11 @@ function Login() {
                     />
             </div>
             <div>
-                <button>Login</button>
+                <button>Sign Up</button>
             </div>
         </form>
-        <div>
-            <Link href="/sign-up">
-            <a>Sign up</a>
-            </Link>
-        </div>
         </Layout>
     );
 }
 
-export default Login;
+export default Signup;
