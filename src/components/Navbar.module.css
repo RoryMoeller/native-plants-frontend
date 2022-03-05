@@ -29,7 +29,7 @@
     background-color: rgb(241, 216, 183);
 }
 .tables tr:hover{
-    background-color: rgb(155, 135, 135);
+    background-color: rgb(187, 173, 173);
 }
 .tables td, .tables th {
     border: 1px solid #ddd;

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
-import styles from './Navbar.module.css';
+import Layout from '../components/Layout';
+import styles from '../components/Navbar.module.css'
 
+export default function Forms() {
 
-export default function Navbar() {
-  return (
-    <ul className={styles.list}>
-      <li className={styles.linkstyle}>
-        <Link href="/">
-          <a>Home</a>
+    return (
+        <Layout>
+        <ul className={styles.list}>
+        <li className={styles.linkstyle}>
+        <Link href="/sign-up">
+          <a>Sign up</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -18,17 +21,17 @@ export default function Navbar() {
       </li>
       <li className={styles.linkstyle}>
         <Link href="/get-farms">
-          <a>Get Farm</a>
+          <a>Add Lab</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
         <Link href="/login">
-          <a>Login</a>
+          <a>Add stock</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
         <Link href="/get-labs" className={styles.linkstyle}>
-          <a>Get Labs</a>
+          <a>Add nursery</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -42,5 +45,6 @@ export default function Navbar() {
         </Link>
       </li>
     </ul>
-  )
+        </Layout>
+    );
 }
