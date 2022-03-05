@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 
-function AddFarm() {
+function AddLab() {
     const [labname, setLabname] = useState("");
     const [email, setEmail] = useState("");
 
@@ -59,4 +59,4 @@ function AddFarm() {
     );
 }
 
-export default AddFarm;
+export default AddLab;
