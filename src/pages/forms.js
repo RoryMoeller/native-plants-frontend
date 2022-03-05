@@ -20,7 +20,7 @@ export default function Forms() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/get-farms">
+        <Link href="/add-lab">
           <a>Add Lab</a>
         </Link>
       </li>
