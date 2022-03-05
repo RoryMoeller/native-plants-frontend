@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 
-function AddLab() {
-    const [labname, setLabname] = useState("");
+function AddNursery() {
+    const [nurseryname, setNurseryname] = useState("");
     const [email, setEmail] = useState("");
 
     async function handleSignup(e) {
@@ -29,12 +29,12 @@ function AddLab() {
         <Layout>
         <form onSubmit={handleSignup}>
             <div>
-                <a>Lab name</a>
+                <a>Nursery name</a>
                 <input
                     type="text"
-                    placeholder="lab_name"
-                    value={labname}
-                    onChange={e => setLabname(e.target.value)}
+                    placeholder="nursery_name"
+                    value={nurseryname}
+                    onChange={e => setNurseryname(e.target.value)}
                     />
             </div>
             <div>
@@ -47,16 +47,16 @@ function AddLab() {
                     />
             </div>
             <div>
-                <label for="phone">Enter Lab phone number:</label>
+                <label for="phone">Enter Nursery phone number:</label>
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                 <small>Format: 123-456-7890</small><br></br>
             </div>
             <div>
-                <button>Add Lab</button>
+                <button>Add Nursery</button>
             </div>
         </form>
         </Layout>
     );
 }
 
-export default AddLab;
+export default AddNursery;

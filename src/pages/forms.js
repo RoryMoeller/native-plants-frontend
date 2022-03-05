@@ -30,7 +30,7 @@ export default function Forms() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/get-labs" className={styles.linkstyle}>
+        <Link href="/add-nursery" className={styles.linkstyle}>
           <a>Add nursery</a>
         </Link>
       </li>

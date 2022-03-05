@@ -5,7 +5,7 @@ import useAPIRequest from '../hooks/useAPIRequest';
 
 function Farms() {
     const [farmname, setFarmname] = useState("");
-    const [email, setEmail] = useState("");
+    const [farmemail, setFarmemail] = useState("");
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /${farmname_to_send}`, "POST");
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/q/SELECT * FROM rev2.farms`, "GET");
     async function postFarm(e) {
@@ -45,12 +45,17 @@ function Farms() {
                 <input
                     type="text"
                     placeholder="Email"
-                    // value={email}
-                    // onChange={e => setEmail(e.target.value)}
+                    onChange={e => setFarmemail(e.target.value)}
+                    value={farmemail}
                     />
             </div>
             <div>
-                <button>Add farm</button>
+                <label for="phone">Enter Farm phone number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+                <small>Format: 123-456-7890</small><br></br>
+            </div>
+            <div>
+                <button>Add Farm</button>
             </div>
         </form>
         </Layout>
