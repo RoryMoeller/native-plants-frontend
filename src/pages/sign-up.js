@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import styles from '../components/Navbar.module.css'
 
 function Signup() {
     const [username, setUsername] = useState("");
@@ -29,13 +30,14 @@ function Signup() {
 
     return (
         <Layout>
-        <form onSubmit={handleSignup}>
+        <form onSubmit={handleSignup} className={styles.container}>
             <div>
                 <a>Username</a>
                 <input
                     type="text"
                     placeholder="user_name"
                     value={username}
+                    className={styles.inputs}
                     onChange={e => setUsername(e.target.value)}
                     />
             </div>
@@ -45,6 +47,7 @@ function Signup() {
                     type="text"
                     placeholder="email"
                     value={email}
+                    className={styles.inputs}
                     onChange={e => setEmail(e.target.value)}
                     />
             </div>
@@ -54,12 +57,13 @@ function Signup() {
                     type="password"
                     placeholder="password"
                     value={password}
+                    className={styles.inputs}
                     onChange={e => setPassword(e.target.value)}
                     />
             </div>
             <div>
                 <label for="phone">Enter your phone number:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+                <input className={styles.inputs} type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                 <small>Format: 123-456-7890</small><br></br>
             </div>
             <div>
@@ -68,12 +72,13 @@ function Signup() {
                     type="text"
                     placeholder="website"
                     value={website}
+                    className={styles.inputs}
                     onChange={e => setWebsite(e.target.value)}
                     />
             </div>
             <div>
-                <label for="w3review">Bio (optional)</label>
-                <textarea id="w3review" name="w3review" rows="4" cols="50"/>
+                <label for="bio">Bio (optional)</label>
+                <textarea classname={styles.textareas} id="bio" rows="4" cols="50">Enter Bio</textarea>
                 <br></br>
             </div>
             <div>
