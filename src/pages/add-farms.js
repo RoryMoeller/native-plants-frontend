@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import styles from '../components/Navbar.module.css'
 
 import useAPIRequest from '../hooks/useAPIRequest';
 
@@ -32,7 +33,7 @@ function Farms() {
 
     return (
         <Layout>
-        <form onSubmit={postFarm}>
+        <form onSubmit={postFarm} className={styles.container}>
             <div>
                 <input
                     type="text"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import styles from '../components/Navbar.module.css'
 
 function AddLab() {
     const [labname, setLabname] = useState("");
@@ -27,7 +28,7 @@ function AddLab() {
 
     return (
         <Layout>
-        <form onSubmit={handleSignup}>
+        <form onSubmit={handleSignup} className={styles.container}>
             <div>
                 <a>Lab name</a>
                 <input
