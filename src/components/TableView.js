@@ -30,7 +30,7 @@ export default function TableView(props) {
                     {dataList.map(row => {
                         return (
                             <tr key={row.id}>
-                                {Object.values(row).map(value => <td key={bad_key++}>{(typeof(value) === "boolean") ? value.toString : value}</td>)}
+                                {Object.values(row).map(value => <td key={bad_key++}>{(typeof(value) === "boolean") ? "[" + value.toString + "]" : value}</td>)}
                             </tr>
                         )
                     })}
