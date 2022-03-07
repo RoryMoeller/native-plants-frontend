@@ -31,10 +31,10 @@ function Labs() {
         var searchmid = '*'
         if (isChecked1){
             //console.log("======= check1")
-            searchmid = "lab_name"
+            searchmid = "lab_name as \"Lab Name\""
             if (isChecked2){
                 //console.log("======= check1 and 2")
-                searchmid = searchmid +", contact_email"
+                searchmid = searchmid +", contact_email as \"Email\""
             }
         }
         else if (isChecked2){

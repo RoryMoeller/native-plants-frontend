@@ -78,22 +78,6 @@ async function accessBackend(req, res) {
         
 
 
-        /* console.log("== req.url:", req.url);
-        console.log("== req.method:", req.method);
-        console.log("== req.headers:", req.headers);
-        console.log("== req.body:", req.body);
-        console.log("== req.cookies:", req.cookies);
-        console.log("== req.params:", req.params);
-        console.log("== req.ip:", req.ip);
-        console.log("== req.hostname:", req.hostname);
-        console.log("== req.protocol:", req.protocol);
-        console.log("== req.secure:", req.secure);
-        console.log("== req.subdomains:", req.subdomains);
-        console.log("== req.xhr:", req.xhr);
-        console.log("== req.fresh:", req.fresh);
-        console.log("== req.stale:", req.stale); */
-
-        //res.status(200).send({success : true});
     }
 }
 
