@@ -31,10 +31,10 @@ function Labs() {
         var searchmid = '*'
         if (isChecked1){
             //console.log("======= check1")
-            searchmid = "lab_name as \"Lab Name\""
+            searchmid = "lab_name"
             if (isChecked2){
                 //console.log("======= check1 and 2")
-                searchmid = searchmid +", contact_email as \"Email\""
+                searchmid = searchmid +", contact_email"
             }
         }
         else if (isChecked2){
@@ -86,7 +86,7 @@ function Labs() {
                         checked={isChecked1}
                         onChange={handleOnChange1}
                     />
-                    <label for="Lab Name">Lab_name</label><br></br>
+                    <label htmlFor="Lab Name">Lab_name</label><br></br>
                     <input
                         type="checkbox"
                         id="contactEmail"
@@ -96,7 +96,7 @@ function Labs() {
                         checked={isChecked2}
                         onChange={handleOnChange2}
                     />
-                    <label for="contactEmail">Email</label><br></br>
+                    <label htmlFor="contactEmail">Email</label><br></br>
                 </div>
                 <div>
                     <button>Get labs</button>

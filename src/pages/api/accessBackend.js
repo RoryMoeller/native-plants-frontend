@@ -63,6 +63,21 @@ async function accessBackend(req, res) {
         // res.status(501).send({ err: "Something went wrong" });
     } else if (req.method == "GET") {
         console.log("== req.query:", req.query);
+        console.log("TYPE:", typeof(req.query.query_string))
+        if (req.query.query_string.substring(0, 6) === "SELECT" && !req.query.query_string.includes("*")) {
+            var fin_fields = []
+            var fields = req.query.query_string.substring(req.query.query_string.indexOf("FROM"), 8 + req.query.query_string.indexOf("WHERE")).split(",");
+            fields.map((field) => {
+                field = field.trim() + " AS \"" + (field.trim()).split("_").map((word) => {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                }).join(" ") + "\"";
+                fin_fields.push(field)
+            })
+            console.log(fin_fields)
+            fin_fields = fin_fields.join(", ")
+            req.query.query_string = req.query.query_string.substring(0, 6) + " " + fin_fields + " " + req.query.query_string.substring(req.query.query_string.indexOf("FROM"), );
+            console.log(req.query.query_string)
+        }
         await fetchGetRes("https://native-plants-backend.herokuapp.com/q/" + req.query.query_string).then(resBody => {
 //            console.log("== resBody:", resBody);
             res.status(200).send({
