@@ -62,7 +62,7 @@ function Signup() {
                     />
             </div>
             <div>
-                <label for="phone">Enter your phone number:</label>
+                <label htmlFor="phone">Enter your phone number:</label>
                 <input className={styles.inputs} type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                 <small>Format: 123-456-7890</small><br></br>
             </div>
@@ -77,8 +77,8 @@ function Signup() {
                     />
             </div>
             <div>
-                <label for="bio">Bio (optional)</label>
-                <textarea classname={styles.textareas} id="bio" rows="4" cols="50">Enter Bio</textarea>
+                <label htmlFor="bio">Bio (optional)</label>
+                <textarea className={styles.textareas} id="bio" rows="4" cols="50">Enter Bio</textarea>
                 <br></br>
             </div>
             <div>
