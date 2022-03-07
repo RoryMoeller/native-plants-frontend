@@ -2,24 +2,35 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+.layoutstyle{
+  background-color: aqua;
+}
+
 .linkstyle {
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     text-align: left;
-    padding-right: 5px;
-    padding-left: 5px;
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    border: 2px;
+    border-width: 2px;
     border-color: black;
     border-style: solid;
     border-radius: 5px;
 }
 
+.linkstyle a{
+  text-decoration: none;
+}
+
 .list {
     list-style: none;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(187, 123, 39);
+    padding-left: 0%;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .tables {
