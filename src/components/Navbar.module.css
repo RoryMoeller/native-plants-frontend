@@ -1,7 +1,8 @@
-.a:-webkit-any-link{
-    font-family:'Courier New', Courier, monospace;
+.a:-webkit-any-link {
+    font-family: 'Courier New', Courier, monospace;
 }
- .linkstyle {
+
+.linkstyle {
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     text-align: left;
@@ -14,34 +15,39 @@
     border-color: black;
     border-style: solid;
     border-radius: 5px;
-  }
+}
 
-.list{
+.list {
     list-style: none;
     display: inline-flex;
 }
-.tables{
+
+.tables {
     border-collapse: collapse;
     width: 90%;
     padding-left: 10%;
 }
-.tables tr:nth-child(even){
+
+.tables tr:nth-child(even) {
     background-color: rgb(241, 216, 183);
 }
-.tables tr:hover{
+
+.tables tr:hover {
     background-color: rgb(187, 173, 173);
 }
-.tables td, .tables th {
+
+.tables td,
+.tables th {
     border: 1px solid #ddd;
     padding: 8px;
-  }
+}
 
 .inputs {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
+}
 
 .textareas {
     width: 100%;
@@ -52,10 +58,10 @@
     border-radius: 4px;
     background-color: #f8f8f8;
     resize: none;
-  }
+}
 
-  .container{
+.container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-  }
+}
