@@ -49,7 +49,13 @@ async function accessBackend(req, res) {
         const format_holders = req.body.query_fields.map(_x => `%s`);
         const query_string = "INSERT INTO " + table_name + "(" + query_fields + ") VALUES (" + format_holders.join(" ") + ")/" + query_values.join(",");
         console.log("== query_string:", query_string);
-        await fetchPostRes("https://native-plants-backend.herokuapp.com/i/" + query_string, {}).then(resBody => {
+        await fetch("https://native-plants-backend.herokuapp.com/wake_me_up", {
+            method: "GET",
+            headers: {
+                "Connection": "keep-alive"
+            }
+        }).then(() => {console.log(`ready to push ${query_string} to backend`)});
+        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
             console.log("== resBody:", resBody);
             res.status(200).send({
                 msg: "OK!"
