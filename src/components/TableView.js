@@ -19,7 +19,6 @@ export default function TableView(props) {
     var bad_key = 0;
     return (
         <div>
-            Table
             <table className={styles.tables}>
                 <thead>
                     <tr>
