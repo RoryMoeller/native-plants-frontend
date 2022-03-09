@@ -22,37 +22,6 @@
   text-decoration: none;
 }
 
-.list {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: rgb(187, 123, 39);
-    padding-left: 0%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.tables {
-    border-collapse: collapse;
-    width: 90%;
-    padding-left: 10%;
-}
-
-.tables tr:nth-child(even) {
-    background-color: rgb(241, 216, 183);
-}
-
-.tables tr:hover {
-    background-color: rgb(187, 173, 173);
-}
-
-.tables td,
-.tables th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
 .inputs {
     width: 100%;
     padding: 12px 20px;

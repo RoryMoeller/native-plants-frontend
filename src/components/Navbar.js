@@ -5,7 +5,7 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
   return (
-    <ul className={styles.list}>
+    <ul >
       <li className={styles.linkstyle}>
         <Link href="/">
           <a>Home</a>

@@ -7,6 +7,7 @@ import useAPIRequest from '../hooks/useAPIRequest';
 function Farms() {
     const [farmname, setFarmname] = useState("");
     const [farmemail, setFarmemail] = useState("");
+    const [farmnumber, setFarmnumber] = useState("");
     async function postFarm(e) {
         e.preventDefault();
         console.log("== Adding farm with these parameters:", farmname, farmemail);
@@ -16,8 +17,8 @@ function Farms() {
             body: JSON.stringify( {
                 table_name: "farms",
                 query_type: "INSERT",
-                query_fields: ['farm_name'],
-                query_values: [farmname]
+                query_fields: ['farm_name','contact_email'],
+                query_values: [farmname, farmemail]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -48,7 +49,11 @@ function Farms() {
             </div>
             <div>
                 <label for="phone">Enter Farm phone number:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+                <input type="tel" 
+                id="phone" 
+                name="phone" 
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                onChange={e => setFarmnumber(e.target.value)}/>
                 <small>Format: 123-456-7890</small><br></br>
             </div>
             <div>

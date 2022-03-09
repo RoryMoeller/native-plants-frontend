@@ -19,7 +19,7 @@ export default function TableView(props) {
     var bad_key = 0;
     return (
         <div>
-            <table className={styles.tables}>
+            <table>
                 <thead>
                     <tr>
                         {headerList.map(header => <th key={header}>{header}</th>)}

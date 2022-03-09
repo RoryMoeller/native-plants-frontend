@@ -6,29 +6,29 @@ function AddLab() {
     const [labname, setLabname] = useState("");
     const [email, setEmail] = useState("");
 
-    async function handleSignup(e) {
+    async function postLab(e) {
         e.preventDefault();
-        console.log("== Logging in with these credentials:", username, password);
-        const res = await fetch('/api/login', {
-            method: "POST",
-            body: JSON.stringify({ username, password }),
+        console.log("== Adding farm with these parameters:", labname, email);
+        //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
+        const res = await fetch('/api/accessBackend', {
+            method: 'POST',
+            body: JSON.stringify( {
+                table_name: "labs",
+                query_type: "INSERT",
+                query_fields: ['lab_name','contact_email'],
+                query_values: [labname, email]
+            }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        })
         const resBody = await res.json();
-        if (res.status !== 200) {
-            alert("Credentials invalid: " + resBody.err)
-        } else {
-            console.log("== resBody:", resBody);
-            console.log("== document.cookie:", document.cookie);
-            // window.localStorage.setItem('token', resBody.token)
-        }
+        console.log(resBody);
     }
 
     return (
         <Layout>
-        <form onSubmit={handleSignup} className={styles.container}>
+        <form onSubmit={postLab} className={styles.container}>
             <div>
                 <a>Lab name</a>
                 <input
