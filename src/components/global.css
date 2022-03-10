@@ -32,34 +32,46 @@ textarea{
 
 ul {
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  background-color: rgb(187, 123, 39);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 0%;
+  padding-top: 10px;
+  color: black;
+  display: inline-block;
+  background-color: #d9d9d9;
+  width: 100%;
+  padding-bottom: 10px;
   height: 40px;
+}
+
+ul * {
+  background-color: #d9d9d9;
+  padding: 0;
+  font-size: 30px;
+  height: 100%;
 }
 
 li {
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   text-align: left;
-  font-size: larger;
   font-family: Arial, Helvetica, sans-serif;
   border-width: 2px;
   border-color: black;
-  border-style: solid;
+  border-style: none;
   border-radius: 5px;
+  display: inline;
 }
 
 li a{
-text-decoration: none;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: large;
+  color: black;
+  text-decoration: none;
 }
 
 li a:hover{
-  text-decoration:line-through;
+  filter: brightness(0.8);
   }
 
 input {
