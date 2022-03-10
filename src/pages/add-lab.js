@@ -13,7 +13,7 @@ function AddLab() {
         const res = await fetch('/api/accessBackend', {
             method: 'POST',
             body: JSON.stringify( {
-                table_name: "labs",
+                table_name: "lab",
                 query_type: "INSERT",
                 query_fields: ['lab_name','contact_email'],
                 query_values: [labname, email]

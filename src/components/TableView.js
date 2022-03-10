@@ -18,7 +18,7 @@ export default function TableView(props) {
     })
     var bad_key = 0;
     return (
-        <div>
+        <div id="responseTable">
             <table>
                 <thead>
                     <tr>

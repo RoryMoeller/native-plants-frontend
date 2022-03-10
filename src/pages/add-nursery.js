@@ -8,7 +8,7 @@ function AddNursery() {
 
     async function postNursery(e) {
         e.preventDefault();
-        console.log("== Adding farm with these parameters:", farmname, farmemail);
+        console.log("== Adding farm with these parameters:", nurseryname, email);
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
         const res = await fetch('/api/accessBackend', {
             method: 'POST',

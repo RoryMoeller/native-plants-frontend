@@ -6,21 +6,6 @@
   background-color: aqua;
 }
 
-.linkstyle {
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    text-align: left;
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-    border-radius: 5px;
-}
-
-.linkstyle a{
-  text-decoration: none;
-}
 
 .inputs {
     width: 100%;
