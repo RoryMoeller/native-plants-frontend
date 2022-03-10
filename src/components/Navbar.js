@@ -5,6 +5,7 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
   return (
+    <center>
     <ul >
       <li className={styles.linkstyle}>
         <Link href="/">
@@ -42,5 +43,6 @@ export default function Navbar() {
         </Link>
       </li>
     </ul>
+    </center>
   )
 }
