@@ -9,12 +9,12 @@ import TableView from '../components/TableView';
 function Plants() {
     const [comname, setComname] = useState("");
     const [email, setEmail] = useState("");
-    const [labList, setLabList] = useState([]);
+    const [plantList, setPlantList] = useState([]);
 
 
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /${farmname_to_send}`, "POST");
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/q/SELECT * FROM rev2.farms`, "GET");
-    async function getLab(e) {
+    async function getPlants(e) {
         e.preventDefault();
         let searchfront = '/api/accessBackend?query_string=SELECT '
         let searchback = ' FROM rev2.plant'
@@ -35,17 +35,17 @@ function Plants() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                query: "Labs"
+                query: "Plants"
             }
         )
         const resBody = await res.json();
         console.log(resBody);
-        setLabList(resBody.data)
+        setPlantList(resBody.data)
     }
 
     return (
         <Layout>
-            <form onSubmit={getLab}>
+            <form onSubmit={getPlants}>
                 <div>
                     <input
                         type="text"
@@ -66,7 +66,7 @@ function Plants() {
                     <button>Get Plants</button>
                 </div>
             </form>
-            <TableView data={labList.data} />
+            <TableView data={plantList.data} />
         </Layout>
     );
 }

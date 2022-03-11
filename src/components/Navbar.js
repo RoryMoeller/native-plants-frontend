@@ -42,6 +42,11 @@ export default function Navbar() {
           <a>Forms</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/admin">
+          <a>Admin</a>
+        </Link>
+      </li>
     </ul>
     </center>
   )

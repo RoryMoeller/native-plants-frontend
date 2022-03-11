@@ -7,25 +7,30 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [website, setWebsite] = useState("");
+    const [bio, setBio] = useState("");
 
     async function handleSignup(e) {
         e.preventDefault();
-        console.log("== Logging in with these credentials:", username, password);
-        const res = await fetch('/api/login', {
-            method: "POST",
-            body: JSON.stringify({ username, password }),
+        e.preventDefault();
+        const usertype = 0
+        console.log("== Adding user with these parameters:", username, email, password, website, bio);
+        //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
+        const res = await fetch('/api/accessBackend', {
+            method: 'POST',
+            body: JSON.stringify( {
+                table_name: "users",
+                query_type: "INSERT",
+                query_fields: ['user_name','email','password_hash','website','user_role_type','bio'],
+                query_values: [username, email,password,website,usertype,bio]
+            }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        })
         const resBody = await res.json();
-        if (res.status !== 200) {
-            alert("Credentials invalid: " + resBody.err)
-        } else {
-            console.log("== resBody:", resBody);
-            console.log("== document.cookie:", document.cookie);
-            // window.localStorage.setItem('token', resBody.token)
-        }
+        console.log(resBody);
+        console.log("== document.cookie:", document.cookie);
+        // window.localStorage.setItem('token', resBody.token)
     }
 
     return (
@@ -78,7 +83,7 @@ function Signup() {
             </div>
             <div>
                 <label htmlFor="bio">Bio (optional)</label>
-                <textarea className={styles.textareas} id="bio" rows="4" cols="50">Enter Bio</textarea>
+                <textarea className={styles.textareas} id="bio" rows="4" cols="50" onChange={e => setBio(e.target.value)}>Enter Bio</textarea>
                 <br></br>
             </div>
             <div>

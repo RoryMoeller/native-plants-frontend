@@ -44,6 +44,11 @@ export default function Forms() {
           <a>Forms</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/get-users">
+          <a>Users</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );
