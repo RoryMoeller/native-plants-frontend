@@ -120,3 +120,8 @@ h1{
   margin-left: 13%;
   margin-top: 0%;
 }
+
+#hidden{
+  visibility: hidden;
+  
+}

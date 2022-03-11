@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 
 
 export default function Navbar() {
+  const [Fmode, setFmode] = useState(false);
+
   return (
+    <div>
     <center>
     <ul >
       <li className={styles.linkstyle}>
@@ -44,10 +47,19 @@ export default function Navbar() {
       </li>
       <li className={styles.linkstyle}>
         <Link href="/admin">
-          <a>Admin</a>
+          <a onClick={() => setFmode(s => !s)}>Admin</a>
         </Link>
       </li>
-    </ul>
-    </center>
+
+      </ul>
+      </center>
+      <ul  className={Fmode ? 'hidden' : 'show'}>
+      <li className={styles.linkstyle}>
+        <Link href="/add-farm">
+          <a>Add Farm</a>
+        </Link>
+      </li>
+      </ul>
+    </div>
   )
 }
