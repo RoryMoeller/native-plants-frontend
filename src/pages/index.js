@@ -25,7 +25,6 @@ export default function Home() {
             <h1>Welcome To Seedbay</h1>
             {user.name && <p>Name: {user.name}</p>}
             {user.email && <p>Email: {user.email}</p>}
-            <button onClick={goToGetFarms}>get farms</button>
         </Layout>
     );
 }
