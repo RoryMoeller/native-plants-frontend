@@ -19,7 +19,7 @@ export default function Navbar() {
         <Link href="/add-farms">
           <a>Add Farm</a>
         </Link>
-      </li>
+      </li>  
       <li className={styles.linkstyle}>
         <Link href="/get-farms">
           <a>Get Farm</a>
@@ -50,13 +50,22 @@ export default function Navbar() {
           <a onClick={() => setFmode(s => !s)}>Admin</a>
         </Link>
       </li>
-
+      <li className={styles.linkstyle}>
+        <Link href="/map">
+          <a>Map</a>
+        </Link>
+      </li>
       </ul>
       </center>
       <ul  className={Fmode ? 'hidden' : 'show'}>
       <li className={styles.linkstyle}>
         <Link href="/add-farm">
           <a>Add Farm</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/map">
+          <a>Map</a>
         </Link>
       </li>
       </ul>
