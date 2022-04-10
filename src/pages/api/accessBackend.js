@@ -1,5 +1,16 @@
+import { getSession } from "next-auth/react"
 
 async function accessBackend(req, res) {
+    const session = await getSession({ req })
+    console.log("== Session:", session)
+    console.log("req:", req)
+
+    if (!session) {
+        res.status(401).send("You are not logged in!");
+        return;
+    }else {
+        console.log("== Logged in with these credentials:", session.user.username, session.user.password);
+    }
 
     async function fetchPostRes(url, body) {
         console.log("Fetching from " + url);

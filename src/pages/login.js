@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const { data: session } = useSession();
+    if (session) {
+        return (
+            <Layout>
+                <h1>You are logged in!</h1>
+                <button onClick={signOut}>Sign out</button>
+            </Layout>
+        );
+    }
 
     async function handleLogin(e) {
         e.preventDefault();
         console.log("== Logging in with these credentials:", username, password);
-        const res = await fetch('/api/login', {
-            method: "POST",
-            body: JSON.stringify({ username, password }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        const resBody = await res.json();
-        if (res.status !== 200) {
-            alert("Credentials invalid: " + resBody.err)
-        } else {
-            console.log("== resBody:", resBody);
-            console.log("== document.cookie:", document.cookie);
-            // window.localStorage.setItem('token', resBody.token)
-        }
+        signIn();
     }
 
     return (
