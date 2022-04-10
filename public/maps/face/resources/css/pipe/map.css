@@ -1,0 +1,529 @@
+body {
+    margin: 0px;
+}
+.map {
+    width: 100%;
+    height: 100%;
+   /*  background-color: rgba(0,0,0,.7);*/
+}
+.ol-overviewmap {
+    bottom: 2em;
+}
+.ol-zoomslider {
+    background-color: rgba(255,255,255,.7);
+}
+.ol-popup {
+    position: absolute;
+    background-color: white;
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    /*padding: 15px;
+    border-radius: 10px;*/
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    /*min-width: 280px;*/
+    opacity: 0.9;
+    overflow: unset;  /*heyuan add 覆盖ol-ext的影响*/
+  }
+  .ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .ol-popup:after{
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+  }
+  .ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+  }
+  .ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+  }
+  .ol-popup-closer:after {
+    content: "✖";
+  }
+
+ body::-webkit-scrollbar {
+    display: none;
+    }
+
+#info {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    z-index: 100;
+  }
+.zoomtip{
+    position: absolute;
+    height: 18px;
+    width: 26px;
+    background: url(../../img/control/zoomtip.png);/*, linear-gradient(#7798B7, #7798B7)
+    background-blend-mode: lighten;*/
+    background-size: 100%;
+    z-index: 100;
+}
+
+.combo-arrow {
+	background-color: #2e64a0;
+	width:30px !important;
+	height:30px !important;
+}
+
+.textbox{
+	width: 200px;
+	line-height:30px;
+	height:27px ;
+	font-size:20px;
+	padding-top: 3px;
+}
+#map{
+    width: 100%;
+	height:100%;
+}
+
+#mapheader{
+    background-color: rgb(245, 246, 247);
+    height: 5vh;
+    z-index: 1111;
+    top: 0px;
+    width: 100%;
+    color: white;
+}
+/*
+.mapTitle{
+    width: 700px;
+    line-height: 48px;
+   
+    font-size: 25px;
+   
+    color: #126EBD;
+    position: absolute;
+    top: 0;
+   
+    margin-left: 18px;
+    
+}
+
+.mapTitle .mapimg {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.mapTitle .mapspan {
+    font-size: 23px;
+}*/
+#searchbox {
+    width: 280px;
+    height: 50px;
+    top: 1em;
+    position: absolute;
+    left: 4em;
+}
+
+#legendPanel {
+    padding:10px 0px 20px 20px; 
+    background-color: rgb(245, 246, 247);
+    background: rgba(96, 96, 96, 0.2);
+    color: rgb(0, 0, 0);
+    width: 240px;
+    height: 290px;
+    position: absolute;
+    bottom: 18vh;
+    right: 2em;
+    /* background-image: url(../../img/pipe/legend.png); */
+    background-size: 340px 340px;
+    z-index: 1000;
+}
+
+#typelegend{
+    position: absolute;
+    bottom: 3vh;
+    left: 5px;
+    padding-top: 5px;
+    width:100px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #ccc;
+    z-index: 99;
+    background: url(../../img/pipe/1001.png) no-repeat ;
+}
+
+#typelegend p{
+    padding:0;
+    margin:0;
+    height:25px;
+    line-height: 25px;
+    padding-left:9px;
+    margin-left:9px;
+
+}
+#version{
+    line-height: 3vh;
+    font-size: 12px;
+    color: white;
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    bottom: 0px;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+}
+
+.gif {
+    width: 40px;
+    height: 40px;
+    background: url(../../img/weather/typhoon.gif) no-repeat scroll 0% 0% transparent;
+}
+
+.accordion .accordion-header {
+    height: 16px !important;
+}
+
+.city-province-letter {
+    margin-top: 5px;
+    margin-bottom: 1px;
+    white-space: normal;
+    padding-left: 1px;
+}
+
+/* 导航面板中的样式 */
+.city-province-letter li {
+    display: inline-block;
+    background-color: #F5F5F5;
+    margin-left: 6px;
+    cursor: pointer;
+    line-height: 18px;
+    width: 18px;
+    text-align: center;
+}
+.city-province-letter li:hover {
+    background-color: rgba(15,137,245,0.8)!important;
+    color: #fff;
+}
+
+
+.tfinfo {
+    width: 240px;
+    background:rgba(255,255,255,0.5);
+    z-index: 10009;
+    list-style: none;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    padding-top: 1px;
+    margin: 0;
+    display:table;
+    padding:0;
+}
+
+.tfinfo .tfinfo-head {
+    padding-left: 13px;
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+    border: 1px #aeb1b7 solid;
+    border-bottom: 0;
+    background: #63A5DD;
+    color: #fff;
+    padding-left: 1px;
+    border-bottom-width: 2px;
+}
+.tfinfo .tfinfo-head span {
+    color: #fff;
+    /*font-weight:bold;*/
+    font-size:12px;
+}
+.tfinfo li {
+    background: #fff;
+    border-width: 0;
+    margin: 0 13px;
+    color: #a3a3a3;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px #ddd solid;
+    font-size: 12px;
+    /*display:table-row;*/
+}
+.tfinfo li>span {
+    margin-left: 6px;
+    color: #666;
+    font-size: 12px;
+    /*display:table-cell; text-align:left;*/
+}
+
+.card, .graph, .stdata, .runcard, .devdata{
+    display: block;
+    float: right;
+    margin-right: 4px;
+}
+.cardimg, .graphimg, .blankimg, .stdataimg,.runcardimg, .devdataimg {
+    background-color: #63A5DD;
+    width:20px;
+    height:20px;
+    vertical-align: middle;
+}
+.cardimg:hover, .graphimg:hover, .stdataimg:hover,.runcardimg:hover,.devdataimg:hover {
+	cursor: pointer;   
+}
+.tfinfo-head.gfile{
+    background-color: #589ad2;
+    cursor:pointer;
+}
+.tfinfo-head.container{
+    cursor:pointer;
+}
+
+.imgExpand{
+	position:absolute;
+	right:0px;
+	top:70px;
+	z-index:999;
+	cursor:pointer;
+}
+
+.imgFold{
+	position:absolute;
+	right:360px;
+	top:70px;
+	z-index:999;
+	cursor:pointer;
+	display:none;
+}
+
+
+/* 列表样式 */
+.listBox{
+	width:400px;
+	height:500px;
+    /* background:url(../../img/background.png) no-repeat; */
+    background-color:rgba(0, 0, 0, 0.6);
+    
+	position:absolute;
+	right:0px;
+	top:70px;
+	border:1px solid;
+	border-radius:5px;
+	color:#fff;
+	z-index:999;
+}
+.inforText{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	background:url(../../img/pipeInfro1.png) no-repeat left bottom;
+	font-size:15px;
+	font-weight:600;
+	padding-left:25px;
+}
+.typhoonList{
+	width:94%;
+	height:700px;
+	margin:0 auto;
+/* 	background-color:blue; */
+}
+.typhoonListText{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+}
+/* 表格样式 */
+.listBox .layui-table td, 
+.listBox .layui-table th,
+.listBox .layui-table-col-set, 
+.listBox .layui-table-fixed-r,
+.listBox .layui-table-grid-down,
+.listBox .layui-table-header, 
+.listBox .layui-table-page, 
+.listBox .layui-table-tips-main, 
+.listBox .layui-table-tool, 
+.listBox .layui-table-total, 
+.listBox .layui-table-view, 
+.listBox .layui-table[lay-skin=line], 
+.listBox .layui-table[lay-skin=row]{
+    border-color: #2E68A6;
+    color: #fff;
+}
+.listBox .layui-table-hover {
+    background-color: #038aff;
+}
+.listBox .layui-table-header{
+    color: #fff;
+    background: #284E8D;
+}
+.listBox thead tr {
+   background: #284E8D;
+   color: #fff;
+   font-weight: bold;
+   text-align-last:center;
+}
+.listBox tbody tr {
+   color: #fff;
+   text-align-last:center;
+}
+.typhoonList .layui-table-main tr td{
+	cursor:pointer;
+}
+
+.login_btn_panel1{
+    text-align:center;
+    margin-top: 1px;
+}
+
+.layui-form-item {    
+    position:absolute;
+	right:30px;
+	top:90px;
+	z-index:999;
+	cursor:pointer;
+}
+
+
+.testswitch {    
+    position:absolute;
+	right:20px;
+	top:50px;
+	z-index:999;
+    cursor:pointer;
+}
+
+.testswitch-checkbox {
+    display: none;
+
+}
+
+.testswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.testswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+    text-align: left;
+   
+}
+
+.testswitch-inner::before,
+.testswitch-inner::after {
+    display: block;
+    float: right;
+    width: 50%;
+    height: 20px;
+    padding: 0;
+    line-height: 1.8em;
+    font-size: 8px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.testswitch-inner::after {
+    content: attr(data-on);
+    padding-left: 10px;
+    background-color: #FFAB47;
+    color: #FFFFFF;
+}
+
+.testswitch-inner::before {
+    content: attr(data-off);
+    padding-right: 10px;
+    background-color: #3F9FE8;
+    color: white;
+    text-align: right;
+}
+
+.testswitch-switch {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 4px;
+    background: #FFFFFF;
+    bottom: 5px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+    text-align: right;
+}
+
+.testswitch-checkbox:checked+.testswitch-label .testswitch-inner {
+    margin-left: 0;
+}
+
+.testswitch-checkbox:checked+.testswitch-label .testswitch-switch {
+    right: 0px;
+}
+
+.css_animation{
+    height:26px;
+    width:26px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(255, 0, 0, 0.1), yellow, red);
+    transform: scale(0);
+  /* border: 5px solid rgba(255, 0, 0, 0.7); 
+      border: 5px solid radial-gradient(red, green, blue); */  
+    animation: myfirst 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes myfirst{
+    to{
+        transform: scale(2);
+        background: radial-gradient(rgba(255, 0, 0, 0.1), rgba(255, 255, 0, 0.4), rgba(255, 0, 0, 0.4));;
+    }
+}
+
+/*back
+ background-image:url(../img/menu/cardImg.png);
+ background-image:url(../img/menu/graphImg.png);
+border: 1px solid #ffffff;
+*/
+
+/* 用split-pane的时候写的
+#left-component {
+    right: 60%;
+    margin-right: 2px;
+}
+
+#my-divider {
+    right: 60%;
+    width: 1px;
+}
+
+#right-component {
+    width: 60%;
+}
+
+#top-component2 {
+    bottom: 40%;
+    margin-bottom: 2px;
+}
+
+#horizontal-divider2 {
+    bottom: 40%;
+    height: 2px;
+}
+
+#bottom-component2 {
+    height: 40%;
+}*/

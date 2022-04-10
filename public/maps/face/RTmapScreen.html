@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>mapview</title>
+	<link rel="stylesheet" href="resources/lib/jquery-easyui/themes/material/easyui.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/jquery-easyui/themes/icon.css">
+	<link rel="stylesheet" href="resources/lib/ol-v4.6.4-dist/ol.css" type="text/css">
+	<link rel="stylesheet" href="resources/lib/ol-ext-dist/ol-ext.css" type="text/css">
+	<link rel="stylesheet" href="resources/lib/layui/layui-v2.4.3/css/layui.css" media="all" />
+	<link rel="stylesheet" href="resources/lib/FontAwesomeDef/font-awesome.min.css">
+	<link rel="stylesheet" href="resources/css/pipe/map.css" type="text/css">
+	<link rel="stylesheet" href="resources/css/pipe/menu.css" type="text/css">
+	<link rel="stylesheet" href="resources/css/pipe/mapToolBar.css" type="text/css">
+	<link rel="stylesheet" href="resources/css/pipe/measure.css" type="text/css">
+	<link rel="stylesheet" href="resources/css/search.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="resources/css/login.css" media="all">
+	<link href="resources/css/animate.min.css" rel="stylesheet">
+	<link href="resources/css/font-awesome.min.css" rel="stylesheet">	
+	<link rel="stylesheet" type="text/css" href="resources/css/zui.css" media="all">
+
+	<style type="text/css">  
+		.td1,.td2,.td3,.td4,.td5,.td6,.td7,.td8,.td9,.td10,.td11,.td12,.td13,.td14,.td15,.td16,.td17,.td18,.td19,
+		.td20,.td21,.td22,.td23,.td24,.td25,.td26,.td27,.td28,.td29,.td30,.td31,.td32,.td33,.td34,.td35,.td36
+		,.td37,.td38,.td39,.td40,.td41,.td42,.td43,.td44,.td45,.td46,.td47,.td48{  
+		font-size:5pt;  
+		line-height:200%;  
+		border-top-width: 1px;  
+		border-right-width: 1px;  
+		border-bottom-width: 1px;  
+		border-left-width: 1px;   
+		border-top-style: solid;  
+		border-right-style: solid;  
+		border-bottom-style: solid;  
+		border-left-style: solid;   
+		border-bottom-color: #CCCCCC;  
+		border-left-color: #CCCCCC;
+		border-right-color: #CCCCCC;
+		border-top-color: #CCCCCC;
+		}    
+	</style>
+
+</head>
+
+<body class="layui-layout-body">
+
+	<!--主体-->
+	<div class="layui-body" style="left: 0px; bottom: 0px; top: 0vh;">
+		<div id="map" class="map">
+			<div id="info"></div>
+		</div>
+		
+		<div class="ui3-suggest-wrap" id="ui3-suggest-wrap"
+			style="top: 48px; left: 60px; z-index: 1000; width: 300px; display: none;">
+			<div id="ui3-suggest-scroll" style="width: 300px; height:310px;font-size: 12px;">
+				<ul></ul>
+			</div>
+		</div>
+		
+		
+	</div>
+
+	
+
+	<div id="pointMarker" name="pointMarker" style="width: 64px;height: 64px;">
+		<img id='pointMarkerImg' />
+	</div>
+
+	
+	
+
+	<!--G File Choose dialog-->
+	<div id="Gfilepopup">
+		<ul class="tfinfo" id="Gfileul" style="display: table; padding: 0;"></ul>
+	</div>
+	<div>
+		<!-- style="display: none;" -->
+		<div class="tip" id="tip">&nbsp;&nbsp;</div>
+
+	</div>
+	
+	<!-- <div class="testswitch">
+		<input class="testswitch-checkbox" id="onoffswitch" type="checkbox" style="vertical-align:middle;">
+		<label class="testswitch-label" for="onoffswitch">
+			<span class="testswitch-inner" data-on="off" data-off="on"></span>
+			<span class="testswitch-switch"></span>
+		</label>
+	</div> -->
+	
+	<!-- 列表 -->
+	<div class="imgExpand" style="display:block;">
+		<image id='expand' src="resources/img/expand.png">
+	</div>
+	<div class="imgFold">
+		<image id='fold' src="resources/img/fold.png">
+	</div>
+	<div class="listBox" style="display:none;">
+		<div class="inforText">Attribute information</div>
+		<div class="typhoonListText">
+			<image src="resources/img/left.png">
+				<span>attribute</span>
+				<image src="resources/img/right.png">
+		</div>
+		
+		<div class="typhoonList" >
+			<table class="list_tableBox" id="list_tableBox" lay-filter="typhoonTable" >				
+			</table>
+		</div>
+		
+	</div>
+	
+
+	<script src="resources/lib/jquery-easyui/jquery.min.js"></script>
+	<script src="resources/lib/jquery-easyui/jquery.easyui.min.js"></script>
+	<script src="resources/lib/ol-v4.6.4-dist/ol-debug.js"></script>
+
+	<script src="resources/lib/ol-ext-dist/ol-ext.js"></script>
+	<script src="resources/lib/turf/turf.min.js"></script>
+	<script src="resources/lib/layui/layui-v2.4.3/layui.js"></script>
+
+	
+
+	<script src="js/config/config.js"></script>
+
+	<script src="js/common/BasicFun.js"></script>
+
+	<script src="js/common/commonMap/commonMapIUtil.js"></script>
+	<script src="js/common/commonMap/commonMapIBase.js"></script>
+	<script src="js/common/commonMap/commonMapIService.js"></script>
+	<script src="js/common/commonMap/commonMapIVecLayer.js"></script>
+	<script src="js/common/commonMap/commonMapIVisual.js"></script>
+	<script src="js/common/commonMap/commonMapILocate.js"></script>
+	<script src="js/common/commonMap/MapToolBar.js"></script>
+	<script src="js/common/commonMap/commonMapIDraw.js"></script>
+
+	<script src="js/app/pipePlatform/app.js"></script>
+	<script src="js/app/pipePlatform/gis.js"></script>
+	<script src="js/app/pipePlatform/Global.js"></script>
+	<script src="js/app/pipePlatform/initmap.js"></script>
+	<script src="js/app/pipePlatform/initContextMenu.js"></script>
+	<script src="js/app/pipePlatform/initLayerSwitchPanel.js"></script>
+	<script src="js/app/pipePlatform/initManagePanel.js"></script>
+	<script src="js/app/pipePlatform/stylemap.js"></script>
+	<script src="js/app/pipePlatform/maptoolbar.js"></script>
+	<script src="js/app/pipePlatform/initMenuBar.js"></script>
+	<script src="js/app/pipePlatform/visualFlowLayer.js"></script>
+	<script src="js/app/pipePlatform/visualBubbleLayer.js"></script>
+	<script src="js/app/pipePlatform/visualPieBarLayer.js"></script>
+	<script src="js/app/pipePlatform/measure.js"></script>
+	<script src="js/app/pipePlatform/initSearchPanel.js"></script>
+	
+
+	<script src="js/app/pipePlatform/init.js"></script>
+	<script type="text/javascript" src="js/app/pipePlatform/GridEdit.js"></script>  
+
+	<script language="Javascript">
+		layui.use('layer', function () { //独立版的layer无需执行这一句
+			var layer = layui.layer;
+		});
+	</script>
+	<script type="text/javascript">  
+		var tabProduct = document.getElementById("list_tableBox");  
+	  
+		// 设置表格可编辑  
+		// 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)  
+		// EditTables(tabProduct);  
+	  	  
+	</script>  
+
+	
+	<script src="resources/lib/jsts/jsts.min.js"></script>
+</body>
+
+
+</html>

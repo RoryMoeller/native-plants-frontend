@@ -34,7 +34,7 @@ function Map() {
             <div>
                 <iframe
                     id="frame-gis"
-                    src= "http://localhost:8090/mapview/face/RTmapScreen.html"
+                    src="/maps/face/RTmapScreen.html"
                     width="1100px"
                     height="600px"
                   ></iframe>             
