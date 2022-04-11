@@ -1,4 +1,4 @@
-//固定变量
+//Fixed variable
 const config = {
   bigScreenMinHeight: 1500,
   activeValueMaxResolution: 160,

@@ -3,7 +3,7 @@ if (!window.commonMap) {
     window.commonMap = {};
 }
 var commonMap = {
-    //版本号
+    //Version number
     VERSION_NUMBER: "Release 1.0"
 }
 

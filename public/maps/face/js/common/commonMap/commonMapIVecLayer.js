@@ -52,7 +52,7 @@ commonMap.IVecLayer.initVecLayerFromREST = function(url, layerName, layerStyle, 
         	style: layerStyle
         }); 
     map.addLayer(layer);
-	//请求坐标数据
+	//Request coordinate data
 	if(url!=null && url!=""){
 		$.ajax({
 			type : "GET",

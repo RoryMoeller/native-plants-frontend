@@ -25,8 +25,8 @@ commonMap.IBase.createEcoMap = function(opt_options)
 		layers: [],
 		controls: [
 					new ol.control.Zoom({
-						zoomInTipLabel: "放大",
-						zoomOutTipLabel: "缩小"
+						zoomInTipLabel: "Enlarge",
+						zoomOutTipLabel: "Narrow"
 					}),
 					new ol.control.ZoomSlider({
 

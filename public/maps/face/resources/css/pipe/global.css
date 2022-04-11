@@ -1,13 +1,7 @@
-/**
 
- layui官网
- By 贤心
+/* layout */
 
-*/
-
-/* 布局 */
-
-/* 头部 */
+/* head */
 admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  background-color: #30457E}
 
 .header .layui-nav{position: absolute; right: 0; top: 0; padding: 0; background: none;}
@@ -34,24 +28,24 @@ admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  backg
 .header-demo .layui-nav-bar{background-color: #393D49;}
 .header-demo .layui-nav .layui-this a{padding: 0 20px;}
 
-/* 底部 */
+/* bottom */
 
 .layui-anim-scaleSpring{-webkit-animation-name: layui-scale-spring; animation-name: layui-scale-spring}
 
-/* 演示 */
+/* demonstration */
 .layui-nav-item .layui-icon{position: relative; /*font-size: 20px;*/}
 .layui-nav-item a cite{padding: 0 10px;}
 
 .layui-layout-admin .site-demo-body{top: 117px;}
 
 
-/* 其它 */
+/* other */
 #trans-tooltip,
 #tip-arrow-bottom,
 #tip-arrow-top{display: none !important;}
 
 
-/* 独立组件 */
+/* Independent component */
 .alone{width:730px; margin:200px auto;}
 .alone ul{margin-left:1px; font-size:0;}
 .alone li{display:inline-block; width:181px; font-size: 16px; text-align:center; line-height:80px; margin:0 1px 1px 0; background-color:#393D49; color:#fff;}
@@ -59,7 +53,7 @@ admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  backg
 .alone li a{display:block; color:#fff;}
 
 
-/* 自定义css */
+/* customcss */
 .admin-header-item-mobile{
 	position: absolute; right: 0px; height: 70px;line-height: 70px; 
 	padding: 0 20px; text-align: center; top:0;
@@ -204,7 +198,7 @@ admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  backg
 }
 
 
-/* 适配多设备 */
+/* Adaptive multi device */
 @media screen and (max-width: 750px) {
   .layui-main{width: auto; margin: 0 10px;}
   .logo,
