@@ -11,15 +11,7 @@ commonMap.IUtil = {};
 
 
 commonMap.IUtil.previousZoom; 
-
-
 commonMap.IUtil.markerLayer;
-
-commonMap.IUtil.serverInfo = {};
-
-commonMap.IUtil.pipeColor = {};
-
-commonMap.IUtil.pipeType = {};
 
 
 

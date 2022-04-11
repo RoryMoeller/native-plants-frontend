@@ -1,0 +1,111 @@
+
+
+#frame-container {
+  position: absolute;
+  display: block;
+  height: 86%;
+  /* top: 0%; */
+  width: 100%;
+  perspective: 1000px;
+  transition: top 500ms;
+}
+
+#head {
+  height: 48px;
+  background: url(../../images/head/background-cloud.png);
+}
+#left {
+  height: 48px;
+  float: left;
+  overflow: hidden;
+}
+#regulate {
+  cursor: pointer;
+  display: inline-block;
+  padding: 9px 12px 9px 15px;
+  height: 50px;
+  margin: 0;
+  vertical-align: super;
+}
+#pylon {
+  left: 460px;
+  position: absolute;
+}
+#card-title {
+  position: absolute;
+  margin: 15px 0;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "microsoft yahei";
+  color: #00968d;
+}
+#right {
+  float: right;
+  padding: 12px 10px 12px 0;
+  /* height: 24px; */
+  overflow: hidden;
+}
+#right img {
+  cursor: pointer;
+  margin-left: 10px;
+}
+#exit {
+  margin-left: 12px !important;
+}
+#user-name {
+  position: relative;
+  /* top: -7px; */
+  height: 18px;
+  display: inline-block;
+  border-right: 1px solid #c5c5c5;
+  font-size: 12px;
+  /* font-family: "????"; */
+  color: #434343;
+  padding: 0 5px;
+}
+#split {
+  height: 4px;
+  margin-bottom: 5px;
+  background: url(../../images/head/colorBar-1920.png);
+}
+
+.fBtns img {
+  width: 24px;
+  height: 24px;
+  margin: 12px 10px 12px 0;
+  cursor: pointer;
+}
+
+#card-header,
+#card-header .dName,
+#card-header .fBtns {
+  display: flex;
+  flex-direction: row;
+}
+
+#card-header {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  background-color: #00968d;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "microsoft yahei";
+}
+#card-icon {
+  margin: 9px 25px 9px 15px;
+}
+#card-icon img {
+  height: 30px;
+}
+#heade-title {
+  margin: 15px 0;
+}
+.addhead {
+  /* top: 1vh ; */
+  /* left: 1vw; */
+  /* width: 100vw; */
+  /* height: 90vh; */
+}

@@ -16,8 +16,7 @@ const config = {
       }
     },
     layerName: {
-      station: "OSB",
-      pipeline: "eco",
+      OSB: "OSB",
       eco: "eco"
     }
   },
@@ -29,8 +28,8 @@ const config = {
 
   Style: {
     textFont: {
-      primary: "bold 36px 微软雅黑", //大屏【bold 36px 微软雅黑】 正常【bold 18px 微软雅黑】
-      normal: "24px 微软雅黑", //大屏【24px 微软雅黑】 正常【12px 微软雅黑】
+      primary: "bold 36px 微软雅黑", 
+      normal: "24px 微软雅黑", 
     },
     opacity: 0.2,
   },
@@ -77,6 +76,6 @@ const config = {
 
 config.URL = {
 
-  pipelineLayer: "./data/data/west_coast_eco_l4.geojson",
-  station: "./data/data/OSB_Managed_Meadow_Habitat.geojson",
+  ecoLayer: "./data/data/west_coast_eco_l4.geojson",
+  OSBLayer: "./data/data/OSB_Managed_Meadow_Habitat.geojson",
 };

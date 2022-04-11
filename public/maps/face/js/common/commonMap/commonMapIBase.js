@@ -1,6 +1,6 @@
 commonMap.IBase = {};
 
-commonMap.IBase.createPipeMap = function(opt_options)
+commonMap.IBase.createEcoMap = function(opt_options)
 {
 	var options = opt_options || {};
 	this.centerXY_ = options.centerXY !== undefined ? options.centerXY : [-118,40];

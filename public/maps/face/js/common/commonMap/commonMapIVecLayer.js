@@ -38,9 +38,41 @@ commonMap.IVecLayer.refreshLayerFromRequest = function(url, layer)
 				}))
 	},
 	error:function (xhr){
-		console.log("获取坐标数据出错，请检查");
+		console.log("");
 	}
 	});
+}
+
+commonMap.IVecLayer.initVecLayerFromREST = function(url, layerName, layerStyle, map)
+{
+   var layer = new ol.layer.Vector({
+		title: layerName,
+		displayInLayerSwitcher:false,
+		source:  new ol.source.Vector({}),
+        	style: layerStyle
+        }); 
+    map.addLayer(layer);
+	//请求坐标数据
+	if(url!=null && url!=""){
+		$.ajax({
+			type : "GET",
+			url : url,
+			dataType : "json", 
+			success : function(result){
+				if(result.features!=null){
+					var features = (new ol.format.GeoJSON()).readFeatures(result,{
+						dataProjection: 'EPSG:4326',
+						featureProjection: 'EPSG:3857'
+					});
+					layer.getSource().addFeatures(features);
+				}
+			},
+			error : function(xhr){
+				console.log(url + "");
+			}
+		});	
+	}
+    return layer;
 }
 
 commonMap.IVecLayer.addFeaturesToLayerFromRequest = function(url, layer)
@@ -58,7 +90,7 @@ commonMap.IVecLayer.addFeaturesToLayerFromRequest = function(url, layer)
 			}
 	},
 	error:function (xhr){
-		console.log("获取坐标数据出错，请检查");
+		console.log("sd");
 	}
 	});
 }
