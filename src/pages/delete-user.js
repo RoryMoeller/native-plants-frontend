@@ -13,7 +13,7 @@ function AddLab() {
         const res = await fetch('/api/accessBackend', {
             method: 'DELETE',
             body: JSON.stringify( {
-                table_name: "user",
+                table_name: "users",
                 query_type: "DELETE",
                 query_fields: ['user_name'],
                 query_values: [username]
