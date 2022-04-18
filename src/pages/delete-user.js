@@ -8,7 +8,7 @@ function AddLab() {
 
     async function postLab(e) {
         e.preventDefault();
-        console.log("== Deleting:", field, " from ", tablename);
+        console.log("== Deleting:", username, " from users");
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
         const res = await fetch('/api/accessBackend', {
             method: 'DELETE',
