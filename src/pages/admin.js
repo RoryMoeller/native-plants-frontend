@@ -10,33 +10,13 @@ export default function Forms() {
         <Layout>
         <ul className={styles.list}>
       <li className={styles.linkstyle}>
-        <Link href="/get-users">
-          <a>See users</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/add-site">
-          <a>Add site</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
         <Link href="/update-users">
           <a>Update User</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/delete">
-          <a>Delete</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/delete-farm">
-          <a>Del Farm</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/delete-lab">
-          <a>Del Lab</a>
+        <Link href="/get-users">
+          <a>See users</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -45,8 +25,13 @@ export default function Forms() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/delete-nursery">
-          <a>Del Nursery</a>
+        <Link href="/add-site">
+          <a>Add site</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/delete">
+          <a>Delete</a>
         </Link>
       </li>
     </ul>

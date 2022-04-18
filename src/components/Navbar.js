@@ -16,23 +16,13 @@ export default function Navbar() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/add-farms">
-          <a>Add Farm</a>
+        <Link href="/farm-tab">
+          <a>Farm</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/get-farms">
-          <a>Get Farm</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/login">
-          <a>Login</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/get-labs" className={styles.linkstyle}>
-          <a>Get Labs</a>
+        <Link href="/lab-tab" className={styles.linkstyle}>
+          <a>Lab</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -41,8 +31,13 @@ export default function Navbar() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/forms">
-          <a>Forms</a>
+        <Link href="/nursery-tab">
+          <a>Nursery</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/login">
+          <a>Login</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -50,7 +45,6 @@ export default function Navbar() {
           <a onClick={() => setFmode(s => !s)}>Admin</a>
         </Link>
       </li>
-
       </ul>
       </center>
     </div>
