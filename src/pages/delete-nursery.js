@@ -15,8 +15,8 @@ function AddLab() {
             body: JSON.stringify( {
                 table_name: "nursery",
                 query_type: "DELETE",
-                query_fields: [nurseryname],
-                query_values: [email]
+                query_fields: ['nurseries'],
+                query_values: [nurseryname]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -36,15 +36,6 @@ function AddLab() {
                     placeholder="Nursery name"
                     value={nurseryname}
                     onChange={e => setNurseryname(e.target.value)}
-                    />
-            </div>
-            <div>
-                <a>Email</a>
-                <input
-                    type="text"
-                    placeholder="Email"
-                    value={email}
-                    onChange={e => setemail(e.target.value)}
                     />
             </div>
             <div>
