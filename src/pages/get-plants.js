@@ -21,11 +21,7 @@ function Plants() {
         var searchmid = '*'
         if (comname !=""){
             searchback = searchback + " Where common_name LIKE '" + comname + "'"
-            if (email !="")
-                searchback = searchback + " OR common_name Like '" + email + "'"
         }
-        else if (email != "")
-        searchback = searchback + " Where common_name LIKE '" + email + "'"
         let searchfinal = searchfront + searchmid + searchback
         console.log("== searching this: ", searchfinal);
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /'+farmname,{
@@ -47,19 +43,14 @@ function Plants() {
         <Layout>
             <form onSubmit={getPlants}>
                 <div>
-                    <input
-                        type="text"
-                        placeholder="Common name"
-                        onChange={e => setComname(e.target.value)}
-                        value={comname}
-                    />
+                    <a>Type here to filter, leave blank for no filter</a>
                 </div>
                 <div>
                     <input
                         type="text"
-                        placeholder="Email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        placeholder="Search by Common name"
+                        onChange={e => setComname(e.target.value)}
+                        value={comname}
                     />
                 </div>
                 <div>

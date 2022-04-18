@@ -26,8 +26,8 @@ export default function Navbar() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/get-plants">
-          <a>Get Plants</a>
+        <Link href="/plant-tab">
+          <a>Plants</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
