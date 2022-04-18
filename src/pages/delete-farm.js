@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import styles from '../components/Navbar.module.css'
 
-import useAPIRequest from '../hooks/useAPIRequest';
-
-function Farms() {
+function AddLab() {
     const [farmname, setFarmname] = useState("");
-    const [farmemail, setFarmemail] = useState("");
-    const [farmnumber, setFarmnumber] = useState("");
-    async function postFarm(e) {
+    const [email, setEmail] = useState("");
+
+    async function postLab(e) {
         e.preventDefault();
-        console.log("== Adding farm with these parameters:", farmname, farmemail);
+        console.log("== Deleting:", field, " from ", tablename);
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
         const res = await fetch('/api/accessBackend', {
-            method: 'POST',
+            method: 'DELETE',
             body: JSON.stringify( {
                 table_name: "farms",
-                query_type: "INSERT",
-                query_fields: ['farm_name','contact_email','contact_phone_number'],
-                query_values: [farmname, farmemail,farmnumber]
+                query_type: "DELETE",
+                query_fields: [farmname],
+                query_values: [email]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -30,38 +28,31 @@ function Farms() {
 
     return (
         <Layout>
-        <form onSubmit={postFarm} className={styles.container}>
+        <form onSubmit={postLab} className={styles.container}>
             <div>
+                <a>Farm Name</a>
                 <input
                     type="text"
                     placeholder="Farm name"
-                    onChange={e => setFarmname(e.target.value)}
                     value={farmname}
+                    onChange={e => setFarmname(e.target.value)}
                     />
             </div>
             <div>
+                <a>Email</a>
                 <input
                     type="text"
                     placeholder="Email"
-                    onChange={e => setFarmemail(e.target.value)}
-                    value={farmemail}
+                    value={email}
+                    onChange={e => setemail(e.target.value)}
                     />
             </div>
             <div>
-                <label for="phone">Enter Farm phone number:</label>
-                <input type="tel" 
-                id="phone" 
-                name="phone" 
-                pattern="[0-9]{10,11}" 
-                onChange={e => setFarmnumber(e.target.value)}/>
-                <small>Format: 1234567890</small><br/>
-            </div>
-            <div>
-                <button>Add Farm</button>
+                <button>Delete selected</button>
             </div>
         </form>
         </Layout>
     );
 }
 
-export default Farms;
+export default AddLab;

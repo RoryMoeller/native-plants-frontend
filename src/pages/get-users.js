@@ -16,21 +16,6 @@ function Farms() {
         e.preventDefault();
         //const res3 = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /'+farmname,{
 
-        const res2 = await fetch('/api/accessBackend', {
-            method: 'POST',
-            body: JSON.stringify( {
-                table_name: "users",
-                query_type: "UPDATE",
-                query_fields: ['user_name','email'],
-                query_values: [username, email]
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            const res2Body = await res2.json();
-            console.log(res2Body);
-
         const res = await fetch('/api/accessBackend?query_string=SELECT * FROM rev2.users',
             {
                 method: 'GET',

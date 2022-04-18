@@ -24,6 +24,31 @@ export default function Forms() {
           <a>Update User</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/delete">
+          <a>Delete</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/delete-farm">
+          <a>Del Farm</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/delete-lab">
+          <a>Del Lab</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/delete-user">
+          <a>Del User</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/delete-nursery">
+          <a>Del Nursery</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );

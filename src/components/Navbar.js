@@ -53,13 +53,6 @@ export default function Navbar() {
 
       </ul>
       </center>
-      <ul  className={Fmode ? 'hidden' : 'show'}>
-      <li className={styles.linkstyle}>
-        <Link href="/add-farm">
-          <a>Add Farm</a>
-        </Link>
-      </li>
-      </ul>
     </div>
   )
 }
