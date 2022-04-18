@@ -22,7 +22,7 @@ function Nurses() {
         if (nursename !=""){
             searchback = searchback + " Where nursery_name LIKE '" + nursename + "'"
         }
-            let searchfinal = searchfront + searchmid + searchback
+        let searchfinal = searchfront + searchmid + searchback
         console.log("== searching this: ", searchfinal);
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /'+farmname,{
         const res = await fetch(searchfinal,
@@ -48,7 +48,7 @@ function Nurses() {
                 <div>
                     <input
                         type="text"
-                        placeholder="Search by nursery name name"
+                        placeholder="Search by nursery name"
                         onChange={e => setNursename(e.target.value)}
                         value={nursename}
                     />
