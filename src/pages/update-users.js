@@ -36,7 +36,7 @@ function Farms() {
         <Layout>
             <form onSubmit={updateUser}>
                 <div>
-                    <label for="Username">Enter Username to change status of</label>
+                    <label htmlFor="Username">Enter Username to change status of</label>
                     <input
                         type="text"
                         id="Username"
@@ -46,7 +46,7 @@ function Farms() {
                     />
                 </div>
                 <div>
-                    <label for="Usertype">Enter status level to change to</label>
+                    <label htmlFor="Usertype">Enter status level to change to</label>
                     <input
                         type="number"
                         placeholder="User Type"

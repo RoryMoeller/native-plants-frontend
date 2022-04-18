@@ -48,7 +48,7 @@ function AddLab() {
                     />
             </div>
             <div>
-                <label for="phone">Enter Lab phone number:</label>
+                <label htmlFor="phone">Enter Lab phone number:</label>
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                 <small>Format: 123-456-7890</small><br></br>
             </div>

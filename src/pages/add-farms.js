@@ -48,7 +48,7 @@ function Farms() {
                     />
             </div>
             <div>
-                <label for="phone">Enter Farm phone number:</label>
+                <label htmlFor="phone">Enter Farm phone number:</label>
                 <input type="tel" 
                 id="phone" 
                 name="phone" 
