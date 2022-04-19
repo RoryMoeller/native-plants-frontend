@@ -96,3 +96,90 @@ commonMap.IBase.getInteractById = function(map, propName, propValue)
 	}
 	return result;
 }
+
+commonMap.IBase.zoomToFeatures = function(map, features, zoom)
+{
+    if(map == null || features == null || features.length ==0){
+        return;
+    }
+    var len = features.length;
+
+    // if(len == 1){
+        var geo = features[0].getGeometry();
+        var center = commonMap.IBase.getCenterByGeometry(geo);
+        var ext = geo.getExtent();
+        var size = ol.extent.getHeight(ext);
+        if(size == 0 || zoom != null){
+            commonMap.IBase.zoomTo(map, center, zoom);
+        }else{
+            commonMap.IBase.zoomToExtent(map, ext);
+        }
+    // }else{
+    //     var ext = ol.extent.createEmpty();
+    //     for(var i = 0; i < len; i++){
+    //         var feature = features[i];
+    //         var geo = feature.getGeometry();
+    //         if(geo == null){
+    //             continue;
+    //         }
+    //         ext = ol.extent.extend(ext, geo.getExtent());
+    //     }
+    //     commonMap.IBase.zoomToExtent(map, ext);
+    // }
+} 	
+
+commonMap.IBase.zoomTo = function(map, center, zoom)
+{
+    var view = map.getView();
+    view.animate({
+        duration: 2000,
+        source: view.getCenter()
+    });
+    if(zoom != null && zoom != undefined){
+        view.setZoom(zoom);
+    }
+    if(center != null && center != undefined){
+        var centerPrj ;
+        if(center == null || center.length <2){
+            return;
+        }else{
+            // if (center[0]<180) {
+            //     centerPrj = ol.proj.fromLonLat(center);
+            // }else{
+                centerPrj = center;
+            // } 
+        }
+        view.setCenter(centerPrj);
+    }
+}
+
+commonMap.IBase.zoomToExtent = function(map, extent) 
+{
+    var center = ol.extent.getCenter(extent);
+    // if(center[0]<180){
+        center = ol.proj.fromLonLat(center);
+        extent = ol.proj.transformExtent(extent, 'EPSG:4326' ,'EPSG:3857');
+    // }
+    map.getView().animate({
+        center: center,
+        duration:5000
+    });
+    var size = map.getSize();
+    var options = {
+        padding: [150, 150, 150, 150],
+        constrainResolution: false
+    }
+    map.getView().fit(extent, size, options);
+    
+}
+
+
+commonMap.IBase.getCenterByGeometry = function(geometry){
+    if(geometry == null){
+        return;
+    }
+    var ext = geometry.getExtent();
+    var center = ol.extent.getCenter(ext);
+    return center;
+}
+

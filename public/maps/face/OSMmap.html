@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="resources/lib/layui/layui-v2.4.3/css/layui.css" media="all" />
 	<link rel="stylesheet" href="resources/lib/FontAwesomeDef/font-awesome.min.css">
 	<link rel="stylesheet" href="resources/css/pipe/map.css" type="text/css">
+	<link rel="stylesheet" href="resources/css/pipe/menu.css" type="text/css">
 	<link href="resources/css/animate.min.css" rel="stylesheet">
 	<link href="resources/css/font-awesome.min.css" rel="stylesheet">	
 
@@ -52,17 +53,24 @@
 			</div>
 		</div>
 		
-		
+		<!-- <div style="width: 31px; height: 50px; top: 6vh; position: absolute; right: 3em;">
+			<a id="mgmt" href="#" class="easyui-linkbutton" style="font-weight: bolder">mgmt</a>
+		</div> -->
+
+		<div id="gridpipePanel" style="display:display">
+			<div class="easyui-accordion" id="searchPanel" data-options="multiple:true"
+				style="width: 320px; opacity: 0.9;">
+				<div id="pipeGrid" selected="false" data-options="collapsed:false,collapsible:true" title="mgmt""
+					style="overflow: auto; padding: 15px;"></div>
+					
+			</div>
+		</div>
 	</div>
 
 	
-
 	<div id="pointMarker" name="pointMarker" style="width: 64px;height: 64px;">
 		<img id='pointMarkerImg' />
 	</div>
-
-	
-	
 
 	<!--G File Choose dialog-->
 	<div id="Gfilepopup">
@@ -134,6 +142,8 @@
 	<script src="js/app/ecoPlatform/initmap.js"></script>
 	<script src="js/app/ecoPlatform/initContextMenu.js"></script>
 	<script src="js/app/ecoPlatform/stylemap.js"></script>
+	<script src="js/app/ecoPlatform/initMenuBar.js"></script>
+	<script src="js/app/ecoPlatform/initManagePanel.js"></script>
 	
 	<script src="js/app/ecoPlatform/init.js"></script>
 

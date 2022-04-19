@@ -40,8 +40,9 @@ function initMap() {
 	coastLayer.set('displayInLayerSwitcher', true);
 	coastLayer.set('visible',false);
 	coastLayer.set('preview', './resources/img/eco.jpg');
+	// coastLayer.setOpacity(0.5);
 
-	var OSBLayer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.OSBLayer, config.map.layerName.OSB, gridStyle, ecoMap);
+	var OSBLayer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.OSBLayer, config.map.layerName.OSB, OSBStyle, ecoMap);
 	Global.layer.stationLayer = OSBLayer;
 
 	OSBLayer.setZIndex(9);
@@ -57,6 +58,9 @@ function initMap() {
 	ecoLayer.set('clickable', true);
 
 	initSelectInteraction();
+	initOSBPanel();
+	// initMenuBar();
+	
 
 	commonMap.IUtil.markerLayer = new ol.layer.Vector({ source: new ol.source.Vector() });
 

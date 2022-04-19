@@ -78,4 +78,5 @@ config.URL = {
 
   ecoLayer: "./data/data/west_coast_eco_l4.geojson",
   OSBLayer: "./data/data/OSB_Managed_Meadow_Habitat.geojson",
+  OSBLayer2: "./data/data/OSB_Managed_Meadow.geojson",
 };

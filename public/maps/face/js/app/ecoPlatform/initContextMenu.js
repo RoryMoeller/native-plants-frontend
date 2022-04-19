@@ -1,8 +1,8 @@
 
 var selectClickControl,selectHoverControl;
-//Initialize layer selection events
+//初始化图层选择事件
 function initSelectInteraction() {
-	//Mouse over event
+	//鼠标悬停事件
 	selectHoverControl = new ol.interaction.Select({
 		multi: true,
 		condition: ol.events.condition.pointerMove,
@@ -20,7 +20,7 @@ function initSelectInteraction() {
 	ecoMap.addInteraction(selectHoverControl);
 
 
-	//Left mouse click event
+	//鼠标左键点击事件
 	selectClickControl = new ol.interaction.Select({
 		multi: true,
 		condition: ol.events.condition.singleClick,
@@ -40,7 +40,7 @@ function initSelectInteraction() {
 	selectClickControl.on('select', SelectClickEvent);
 }
 
-//Left mouse click event
+//鼠标左键点击事件
 function SelectClickEvent(evt) {
 	var features = 	selectClickControl.getFeatures().getArray(); 
 	if (features.length>0){	
