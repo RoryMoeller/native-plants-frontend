@@ -10,7 +10,10 @@ const registerUser = async function(req, res){
             phone_number: req.body.number,
             website: req.body.website
         }),
-        headers: { "Content-Type": "application/json" }
+        headers: { 
+            "Content-Type": "application/json",
+            "Authentication": process.env.DATABASE_KEY
+        }
     })
     const response = await res2.json()
     console.log(response)
