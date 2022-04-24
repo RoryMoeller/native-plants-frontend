@@ -5,11 +5,15 @@ async function accessBackend(req, res) {
     console.log("== Session:", session)
     console.log("req:", req)
 
-     if (!session) {
+    if (!session) {
         res.status(401).send({"error": "You are not logged in!"});
+        return;
+    } else if (session.user.user_level < 1) {
+        res.status(401).send({"error": "You do not have permission to access this page!\nAsk an admin to approve your account."});
         return;
     }else {
         console.log("== Logged in with these credentials:", session.user.username, session.user.password);
+        console.log("== Session:", session)
     } 
 
     async function fetchPostRes(url, body) {
