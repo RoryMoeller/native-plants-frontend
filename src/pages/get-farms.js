@@ -35,7 +35,11 @@ function Farms() {
         )
         const resBody = await res.json();
         console.log(resBody);
-        setFarmList(resBody.data)
+        if(res.status >= 200 && res.status < 400) {
+            setFarmList(resBody.data)
+        }else {
+            alert("Error: \n" + resBody.error)
+        }
     }
 
     return (
@@ -56,7 +60,7 @@ function Farms() {
                     <button>Get farms</button>
                 </div>
             </form>
-            <TableView data={farmList.data} />
+            {(farmList && farmList.data )? <TableView data={farmList.data} /> : <TableView data={[{"Notice":"no data to display"}]} />}
         </Layout>
     );
 }

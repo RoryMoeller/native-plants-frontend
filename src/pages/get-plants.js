@@ -36,7 +36,11 @@ function Plants() {
         )
         const resBody = await res.json();
         console.log(resBody);
-        setPlantList(resBody.data)
+        if (res.status >= 200 && res.status < 400) {
+            setPlantList(resBody.data)
+        } else {
+            alert("Error: \n" + resBody.error)
+        }
     }
 
     return (
@@ -57,7 +61,7 @@ function Plants() {
                     <button>Get Plants</button>
                 </div>
             </form>
-            <TableView data={plantList.data} />
+            {(plantList && plantList.data) ? <TableView data={plantList.data} /> : <TableView data={[{ "Notice": "no data to display" }]} />}
         </Layout>
     );
 }

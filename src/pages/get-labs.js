@@ -37,7 +37,11 @@ function Labs() {
         )
         const resBody = await res.json();
         console.log(resBody);
-        setLabList(resBody.data)
+        if (res.status >= 200 && res.status < 400) {
+            setLabList(resBody.data)
+        } else {
+            alert("Error: \n" + resBody.error)
+        }
     }
 
     return (
@@ -58,7 +62,7 @@ function Labs() {
                     <button>Get labs</button>
                 </div>
             </form>
-            <TableView data={labList.data} />
+            {(labList && labList.data) ? <TableView data={labList.data} /> : <TableView data={[{ "Notice": "no data to display" }]} />}
         </Layout>
     );
 }

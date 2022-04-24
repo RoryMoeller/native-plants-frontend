@@ -36,7 +36,11 @@ function Nurses() {
         )
         const resBody = await res.json();
         console.log(resBody);
-        setNurseList(resBody.data)
+        if (res.status >= 200 && res.status < 400) {
+            setNurseList(resBody.data)
+        } else {
+            alert("Error: \n" + resBody.error)
+        }
     }
 
     return (
@@ -57,7 +61,7 @@ function Nurses() {
                     <button>Get Nurseries</button>
                 </div>
             </form>
-            <TableView data={nurseList.data} />
+            {(nurseList && nurseList.data) ? <TableView data={nurseList.data} /> : <TableView data={[{ "Notice": "no data to display" }]} />}
         </Layout>
     );
 }
