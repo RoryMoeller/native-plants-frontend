@@ -26,11 +26,14 @@ export default NextAuth({
                 console.log(credentials)
                 const res = await fetch("https://native-plants-backend.herokuapp.com/u/login", {
                     method: 'POST',
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Authentication": process.env.DATABASE_KEY
+                    },
                     body: JSON.stringify({
                         username: credentials.username,
                         password: credentials.password
-                    }),
-                    headers: { "Content-Type": "application/json" }
+                    })
                 })
                 const user = await res.json()
 

@@ -6,7 +6,7 @@ async function accessBackend(req, res) {
     console.log("req:", req)
 
      if (!session) {
-        res.status(401).send("You are not logged in!");
+        res.status(401).send({"error": "You are not logged in!"});
         return;
     }else {
         console.log("== Logged in with these credentials:", session.user.username, session.user.password);
@@ -21,7 +21,8 @@ async function accessBackend(req, res) {
                 'Accept': '*/*',
                 'Access-Control-Allow-Origin': '*',
                 'Accept-Encoding': 'gzip, deflate, br',
-                "Connection": "keep-alive"
+                "Connection": "keep-alive",
+                "Authentication": process.env.DATABASE_KEY
             },
             body: JSON.stringify(body)                
         });
@@ -40,7 +41,8 @@ async function accessBackend(req, res) {
                 'Accept': '*/*',
                 'Access-Control-Allow-Origin': '*',
                 'Accept-Encoding': 'gzip, deflate, br',
-                "Connection": "keep-alive"
+                "Connection": "keep-alive",
+                "Authentication": process.env.DATABASE_KEY
             }
         });
         const resBody = await res.json();
@@ -66,7 +68,13 @@ async function accessBackend(req, res) {
                 "Connection": "keep-alive"
             }
         }).then(() => {console.log(`ready to push ${query_string} to backend`)});
-        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
+        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string, {
+            method: "GET",
+            headers: {
+                "Connection": "keep-alive",
+                "Authentication": process.env.DATABASE_KEY
+            }
+        }).then(resBody => {
             console.log("== resBody:", resBody);
             res.status(200).send({
                 msg: "OK!"
