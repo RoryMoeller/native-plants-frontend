@@ -24,7 +24,6 @@ function Plants() {
         }
         let searchfinal = searchfront + searchmid + searchback
         console.log("== searching this: ", searchfinal);
-        //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /'+farmname,{
         const res = await fetch(searchfinal,
             {
                 method: 'GET',

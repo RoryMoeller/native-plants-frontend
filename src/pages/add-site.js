@@ -7,18 +7,18 @@ import useAPIRequest from '../hooks/useAPIRequest';
 function Sites() {
     const [ownername, setOwnername] = useState("");
     const [sitename, setSitename] = useState("");
-    const [farmnumber, setFarmnumber] = useState("");
+    const [aCode, setACode] = useState("");
+
     async function postSite(e) {
         e.preventDefault();
-        console.log("== Adding farm with these parameters:", farmname, farmemail);
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
         const res = await fetch('/api/accessBackend', {
             method: 'POST',
             body: JSON.stringify( {
                 table_name: "site",
                 query_type: "INSERT",
-                query_fields: ['owner_name','collection_site_name'],
-                query_values: [ownername, sitename]
+                query_fields: ['owner_username','collection_site_name','accession_code'],
+                query_values: [ownername, sitename,aCode]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -47,6 +47,27 @@ function Sites() {
                     value={sitename}
                     />
             </div>
+            <p>What is the accession code</p>
+            <label class="container">Washington
+                <input type="radio" name="radio" value="WA" onClick={e => setACode(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Columbia River - Alsea River
+                <input type="radio" name="radio" value="NC" onClick={e => setACode(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Alsea River - Coos
+                <input type="radio" name="radio" value="CC" onClick={e => setACode(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Coos River - Winchuck River
+                <input type="radio" name="radio" value="SC" onClick={e => setACode(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">California
+                <input type="radio" name="radio" value="CA" onClick={e => setACode(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
             <div>
                 <button>Add Site</button>
             </div>
