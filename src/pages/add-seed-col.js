@@ -13,6 +13,7 @@ function SeedCol() {
     const [siteName, setSitename] = useState("");
     const [confidence, setConfidence] = useState("");
     const [clean, setClean] = useState("");
+    const [username, setUserName] = useState("");
 
     async function getData(){
         const reqData = {}
@@ -64,7 +65,7 @@ function SeedCol() {
                 table_name: "seed_collection",
                 query_type: "INSERT",
                 query_fields: ['col_species_code', 'cleaning_effectiveness', 'cleaned_weight', 'id_confidence','collected_date', 'id_method', 'col_provenance', 'id_person_name'],
-                query_values: [speccode, clean, cleanWeight, confidence, date, method, reqData.siteData.site_id, curruser]
+                query_values: [speccode, clean, cleanWeight, confidence, date, method, reqData.siteData.site_id, username]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -77,6 +78,14 @@ function SeedCol() {
     return (
         <Layout>
         <form onSubmit={postSeedCol} className={styles.container}>
+        <div>
+                <input
+                    type="text"
+                    placeholder="User name of owner"
+                    onChange={e => setUserName(e.target.value)}
+                    value={username}
+                    />
+            </div>
             <div>
                 <p>Name of existing collection Site (if a site of that name doesn't exist in the database this will not work)</p>
                 <input
