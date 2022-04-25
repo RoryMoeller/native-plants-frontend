@@ -78,6 +78,7 @@ function SeedCol() {
         <Layout>
         <form onSubmit={postSeedCol} className={styles.container}>
             <div>
+                <p>Name of existing collection Site (if a site of that name doesn't exist in the database this will not work)</p>
                 <input
                     type="text"
                     placeholder="Site name"
@@ -86,6 +87,7 @@ function SeedCol() {
                     />
             </div>
             <div>
+                <p>Code for existing species (if a species of that code doesn't exist in the database this will not work)</p>
                 <input
                     type="text"
                     placeholder="Species Code"
