@@ -34,6 +34,11 @@ export default function Forms() {
           <a>Delete</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/add-seed-col">
+          <a>Add seed Colleciton</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );
