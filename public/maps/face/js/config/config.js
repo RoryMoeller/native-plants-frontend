@@ -17,7 +17,8 @@ const config = {
     },
     layerName: {
       OSB: "OSB",
-      eco: "eco"
+      ecoL3: "ecoL3",
+      ecoL4: "ecoL4"
     }
   },
 

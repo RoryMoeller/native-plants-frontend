@@ -17,7 +17,7 @@ function initMap() {
 		minZoom: result.map.minZoom,
 		mapDiv: 'map'
 	};
-	
+
 	ecoMap = commonMap.IBase.createEcoMap(mapOption);
 
 	var OSMLayer = new ol.layer.Tile({
@@ -33,29 +33,34 @@ function initMap() {
 
 	zoom = Math.floor(ecoMap.getView().getZoom());
 
-	var ecoLayer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.ecoLayer, config.map.layerName.eco, ecoStyle, ecoMap);
-	Global.layer.ecoLayer = ecoLayer;
 
-	var coastLayer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.ecoLayer, config.map.layerName.eco, gridStyle, ecoMap);
+	var coastLayer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.ecoLayer, config.map.layerName.ecoL3, gridStyle, ecoMap);
 	coastLayer.set('displayInLayerSwitcher', true);
 	coastLayer.set('visible',false);
 	coastLayer.set('preview', './resources/img/eco.jpg');
+	coastLayer.setOpacity(0.5);
 	// coastLayer.setOpacity(0.5);
+
+	var ecoL4Layer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.ecoLayer, config.map.layerName.ecoL4, ecoL4Style, ecoMap);
+	ecoL4Layer.set('displayInLayerSwitcher', true);
+	ecoL4Layer.set('visible',true);
+	ecoL4Layer.set('preview', './resources/img/ecoL4.jpg');
+	ecoL4Layer.setOpacity(0.5);
 
 	var OSBLayer = commonMap.IVecLayer.initVecLayerFromREST(config.URL.OSBLayer, config.map.layerName.OSB, OSBStyle, ecoMap);
 	Global.layer.stationLayer = OSBLayer;
 
 	OSBLayer.setZIndex(9);
 	coastLayer.setZIndex(8);
-	ecoLayer.setZIndex(7);
+	ecoL4Layer.setZIndex(7);
 
 	OSBLayer.set('hoverable', true);
 	coastLayer.set('hoverable', true);
-	ecoLayer.set('hoverable', true);
+	ecoL4Layer.set('hoverable', true);
 
 	OSBLayer.set('clickable', true);
 	coastLayer.set('clickable', true);
-	ecoLayer.set('clickable', true);
+	ecoL4Layer.set('clickable', true);
 
 	initSelectInteraction();
 	initOSBPanel();
