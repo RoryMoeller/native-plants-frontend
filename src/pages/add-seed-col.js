@@ -57,7 +57,7 @@ function SeedCol() {
     
     async function postSeedCol(e) {
         e.preventDefault();
-        const data = getData()
+        const data = await getData()
         //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
         const res = await fetch('/api/accessBackend', {
             method: 'POST',
@@ -65,7 +65,7 @@ function SeedCol() {
                 table_name: "seed_collection",
                 query_type: "INSERT",
                 query_fields: ['col_species_code', 'cleaning_effectiveness', 'cleaned_weight', 'id_confidence','collected_date', 'id_method', 'col_provenance', 'id_person_name'],
-                query_values: [speccode, clean, cleanWeight, confidence, date, method, reqData.siteData.site_id, username]
+                query_values: [speccode, clean, cleanWeight, confidence, date, method, data.siteData.data.data[0].site_id, username]
             }),
             headers: {
                 'Content-Type': 'application/json'

@@ -18,7 +18,7 @@ function Plants() {
         e.preventDefault();
         let searchfront = '/api/accessBackend?query_string=SELECT '
         let searchback = ' FROM rev2.seed_collection'
-        var searchmid = '*'
+        var searchmid = 'cleaned_weight, cleaning_effectiveness, collected_date, col_species_code, id_method, id_confidence, id_person_name'
         if (comname !=""){
             searchback = searchback + " Where species_code LIKE '" + speccode + "'"
         }
