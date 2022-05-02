@@ -48,25 +48,25 @@ function Sites() {
                     />
             </div>
             <p>What is the accession code</p>
-            <label class="container">Washington
+            <label className="container">Washington
                 <input type="radio" name="radio" value="WA" onClick={e => setACode(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Columbia River - Alsea River
+            <label className="container">Columbia River - Alsea River
                 <input type="radio" name="radio" value="NC" onClick={e => setACode(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Alsea River - Coos
+            <label className="container">Alsea River - Coos
                 <input type="radio" name="radio" value="CC" onClick={e => setACode(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Coos River - Winchuck River
+            <label className="container">Coos River - Winchuck River
                 <input type="radio" name="radio" value="SC" onClick={e => setACode(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">California
+            <label className="container">California
                 <input type="radio" name="radio" value="CA" onClick={e => setACode(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             <div>
                 <button>Add Site</button>

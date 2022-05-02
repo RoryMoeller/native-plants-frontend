@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import styles from '../components/Navbar.module.css'
 
-import useAPIRequest from '../hooks/useAPIRequest';
-
 function SeedCol() {
     const [cleanWeight, setCleanWeight] = useState("");
     const [speccode, setSpecCode] = useState("");
@@ -87,7 +85,7 @@ function SeedCol() {
                     />
             </div>
             <div>
-                <p>Name of existing collection Site (if a site of that name doesn't exist in the database this will not work)</p>
+                <p>Name of existing collection Site (if a site of that name does not exist in the database this will not work)</p>
                 <input
                     type="text"
                     placeholder="Site name"
@@ -96,7 +94,7 @@ function SeedCol() {
                     />
             </div>
             <div>
-                <p>Code for existing species (if a species of that code doesn't exist in the database this will not work)</p>
+                <p>Code for existing species (if a species of that code does not exist in the database this will not work)</p>
                 <input
                     type="text"
                     placeholder="Species Code"
@@ -113,17 +111,17 @@ function SeedCol() {
                     />
             </div>
             <p>How was the seed Identified</p>
-            <label class="container">Dichotomous key
+            <label className="container">Dichotomous key
                 <input type="radio" name="radio" value="GK" onClick={e => setMethod(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Diagnostic Characteristics
+            <label className="container">Diagnostic Characteristics
                 <input type="radio" name="radio" value="GC" onClick={e => setMethod(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Gist
+            <label className="container">Gist
                 <input type="radio" name="radio" value="GI" onClick={e => setMethod(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             <div>
                 <input
@@ -133,23 +131,23 @@ function SeedCol() {
                     value={confidence}
                     />
             </div>
-            <div class="radios">
+            <div className="radios">
                 <p>Please rate how well the seed was cleaned</p>
-            <label class="container">Great
+            <label className="container">Great
                 <input type="radio" name="radio" value="a" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Good
+            <label className="container">Good
                 <input type="radio" name="radio" value="b" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Fair
+            <label className="container">Fair
                 <input type="radio" name="radio" value="c" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">None
+            <label className="container">None
                 <input type="radio" name="radio" value="z" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             </div>
             <div>
