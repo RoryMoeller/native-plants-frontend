@@ -14,6 +14,9 @@ function SeedCol() {
     const [confidence, setConfidence] = useState("");
     const [clean, setClean] = useState("");
     const [username, setUserName] = useState("");
+    const [idname, setIdName] = useState("");
+    const [desc, setDesc] = useState("");
+    const [abund, setAbund] = useState("");
 
     async function getData(){
         const reqData = {}
@@ -31,8 +34,8 @@ function SeedCol() {
             reqData.plantData = await res.json();
             console.log(reqData.plantData);
         } else {
-            alert("Error: \n" + resBody.error)
-            return {siteData:NULL, plantData:NULL}
+            alert("Error: \n" + reqData.error)
+            return {plantData:NULL}
         }
 
         query = "/api/accessBackend?query_string=SELECT * from rev2.site WHERE collection_site_name LIKE '" +siteName+ "'"
@@ -49,7 +52,7 @@ function SeedCol() {
             reqData.siteData = await res.json();
             console.log(reqData.siteData);
         } else {
-            alert("Error: \n" + resBody.error)
+            alert("Error: \n" + reqData.error)
             return {siteData:NULL, plantData:NULL}
         }
         return reqData
@@ -58,14 +61,15 @@ function SeedCol() {
     async function postSeedCol(e) {
         e.preventDefault();
         const data = await getData()
-        //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name, contact_email) VALUES (%s) /'+farmname+', '+farmeamil,{
+        if (idname == "")
+            setIdName("NULL")
         const res = await fetch('/api/accessBackend', {
             method: 'POST',
             body: JSON.stringify( {
                 table_name: "seed_collection",
                 query_type: "INSERT",
-                query_fields: ['col_species_code', 'cleaning_effectiveness', 'cleaned_weight', 'id_confidence','collected_date', 'id_method', 'col_provenance', 'id_person_name'],
-                query_values: [speccode, clean, cleanWeight, confidence, date, method, data.siteData.data.data[0].site_id, username]
+                query_fields: ['col_species_code', 'cleaning_effectiveness', 'cleaned_weight', 'id_confidence','collected_date', 'id_method', 'col_provenance', 'owner_name', 'id_person_name'],
+                query_values: [speccode, clean, cleanWeight, confidence, date, method, data.siteData.data.data[0].site_id, username, idname]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -96,6 +100,15 @@ function SeedCol() {
                     />
             </div>
             <div>
+                <p>Description of area collected from, 50 letters or less(E.g.: relic dune, salt spray meadow, lowland prairie, headland, montane grassland)</p>
+                <input
+                    type="text"
+                    placeholder="Description"
+                    onChange={e => setDesc(e.target.value)}
+                    value={desc}
+                    />
+            </div>
+            <div>
                 <p>Code for existing species (if a species of that code doesn't exist in the database this will not work)</p>
                 <input
                     type="text"
@@ -105,6 +118,7 @@ function SeedCol() {
                     />
             </div>
             <div>
+            <p>Collection Date (format YYYY-MM-DD you DO type the dashes)</p>
                 <input
                     type="text"
                     placeholder="Collection Date"
@@ -112,17 +126,26 @@ function SeedCol() {
                     value={date}
                     />
             </div>
+            <div>
+            <p>User name of person who identified the species. (leave blank if they are not a user)</p>
+                <input
+                    type="text"
+                    placeholder="Name of Identifiyer"
+                    onChange={e => setIdName(e.target.value)}
+                    value={idname}
+                    />
+            </div>
             <p>How was the seed Identified</p>
             <label class="container">Dichotomous key
-                <input type="radio" name="radio" value="GK" onClick={e => setMethod(e.target.value)}/>
+                <input type="radio" name="key" value="GK" onClick={e => setMethod(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">Diagnostic Characteristics
-                <input type="radio" name="radio" value="GC" onClick={e => setMethod(e.target.value)}/>
+                <input type="radio" name="key" value="GC" onClick={e => setMethod(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">Gist
-                <input type="radio" name="radio" value="GI" onClick={e => setMethod(e.target.value)}/>
+                <input type="radio" name="key" value="GI" onClick={e => setMethod(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             <div>
@@ -136,19 +159,19 @@ function SeedCol() {
             <div class="radios">
                 <p>Please rate how well the seed was cleaned</p>
             <label class="container">Great
-                <input type="radio" name="radio" value="a" onClick={e => setClean(e.target.value)}/>
+                <input type="radio" name="rate" value="a" onClick={e => setClean(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">Good
-                <input type="radio" name="radio" value="b" onClick={e => setClean(e.target.value)}/>
+                <input type="radio" name="rate" value="b" onClick={e => setClean(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">Fair
-                <input type="radio" name="radio" value="c" onClick={e => setClean(e.target.value)}/>
+                <input type="radio" name="rate" value="c" onClick={e => setClean(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">None
-                <input type="radio" name="radio" value="z" onClick={e => setClean(e.target.value)}/>
+                <input type="radio" name="rate" value="z" onClick={e => setClean(e.target.value)}/>
                 <span class="checkmark"></span>
             </label>
             </div>

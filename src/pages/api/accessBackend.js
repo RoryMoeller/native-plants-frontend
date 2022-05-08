@@ -161,7 +161,8 @@ async function accessBackend(req, res) {
             res.status(405).send({ err: "Only UPDATE queries supported" })
         }
         const query_fields = req.body.query_fields;
-
+        const clauses = ""
+        
         const query_values = req.body.query_values;
         const format_holders = req.body.query_fields.map(_x => `%s`);
         const query_string = "UPDATE " + table_name + ` SET ${query_fields[0]}=%s WHERE ${query_fields[1]}=%s/` + query_values.join(",");
@@ -184,7 +185,38 @@ async function accessBackend(req, res) {
             });
         });
         // res.status(501).send({ err: "Something went wrong" });
+    }else if (req.method === "PUT") {
+    console.log("query_values:", req.body.query_values);
+    const table_name = "rev2." + req.body.table_name;
+    const query_type = req.body.query_type;
+    if (query_type !== "UPDATE") {
+        res.status(405).send({ err: "Only UPDATE queries supported" })
     }
+    const query_fields = req.body.query_fields;
+
+    const query_values = req.body.query_values;
+    const format_holders = req.body.query_fields.map(_x => `%s`);
+    const query_string = "UPDATE " + table_name + ` SET ${query_fields[0]}=%s WHERE ${query_fields[1]}=%s AND ${query_fields[2]}=%s AND ${query_fields[3]}=%s AND ${query_fields[4]}=%s/` + query_values.join(",");
+    console.log("== query_string:", query_string);
+    await fetch("https://native-plants-backend.herokuapp.com/wake_me_up", {
+        method: "GET",
+        headers: {
+            "Connection": "keep-alive"
+        }
+    }).then(() => {console.log(`ready to push ${query_string} to backend`)});
+    await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
+        console.log("== resBody:", resBody);
+        res.status(200).send({
+            msg: "OK!"
+        });
+    }).catch(err => {
+        console.log("== err:", err);
+        res.status(500).send({
+            err: "Error accessing backend"
+        });
+    });
+    // res.status(501).send({ err: "Something went wrong" });
+}
 }
 
 export default accessBackend;
