@@ -22,7 +22,7 @@ export default function Home() {
 
     return (
         <Layout>
-            <h1>Welcome To Seedbay</h1>
+            <h1>Welcome To Seedy</h1>
             {user.name && <p>Name: {user.name}</p>}
             {user.email && <p>Email: {user.email}</p>}
         </Layout>
