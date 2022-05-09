@@ -11,6 +11,10 @@ async function accessBackend(req, res) {
     } else if (session.user.user_level < 1) {
         res.status(401).send({"error": "You do not have permission to access this page!\nAsk an admin to approve your account."});
         return;
+    }else if (session.user.user_level < 2 && req.body.query_type && req.body.query_type =="UPDATE" && 
+    req.body.query_fields && req.body.query_fields.length > 0 && req.body.query_fields[0]=="user_role_type") {
+        res.status(401).send({"error": "You do not have permission to access this page!\nAsk an admin to approve your account."});
+        return;
     }else {
         console.log("== Logged in with these credentials:", session.user.username, session.user.password);
         console.log("== Session:", session)

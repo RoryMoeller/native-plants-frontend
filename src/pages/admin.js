@@ -44,6 +44,11 @@ export default function Forms() {
           <a>Get seed Collecitons</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/update-seed-col">
+          <a>Update seed</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );

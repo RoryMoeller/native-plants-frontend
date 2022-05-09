@@ -9,6 +9,8 @@ function Farms() {
     const [username, setUsername] = useState("");
     const [usertype, setUsertype] = useState("");
     const [userList, setUserList] = useState([]);
+    const [collum, setCol] = useState("");
+    const [newdata, setNew] = useState("");
 
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /${farmname_to_send}`, "POST");
     // const [res, loading, error] = useAPIRequest(`https://native-plants-backend.herokuapp.com/q/SELECT * FROM rev2.farms`, "GET");
@@ -21,8 +23,8 @@ function Farms() {
             body: JSON.stringify( {
                 table_name: "users",
                 query_type: "UPDATE",
-                query_fields: ['user_role_type','user_name'],
-                query_values: [usertype,username]
+                query_fields: [collum,'user_name'],
+                query_values: [newdata,username]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -30,8 +32,8 @@ function Farms() {
         })
         const res2Body = await res2.json();
         console.log(res2Body);
-        if (res.status >= 200 && res.status < 400) {
-            setUserList(resBody.data)
+        if (res2.status >= 200 && res2.status < 400) {
+            setUserList(res2Body.data)
         } else {
             alert("Error: \n" + resBody.error)
         }
@@ -40,32 +42,54 @@ function Farms() {
     return (
         <Layout>
             <form onSubmit={updateUser}>
+            <div className="radios">
+                <p>Please select what info to change</p>
+            <label class="container">Real name (not user name)
+                <input type="radio" name="rate" value="name" onClick={e => setCol(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Email
+                <input type="radio" name="rate" value="email" onClick={e => setCol(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Website
+                <input type="radio" name="rate" value="website" onClick={e => setCol(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Phone Number
+                <input type="radio" name="rate" value="phone_number" onClick={e => setCol(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Role Type
+                <input type="radio" name="rate" value="user_role_type" onClick={e => setCol(e.target.value)}/>
+                <span class="checkmark"></span>
+            </label>
+            </div>
                 <div>
-                    <label htmlFor="Username">Enter Username to change status of</label>
+                    <label htmlFor="UserEdit">Enter what to new data will be</label>
                     <input
                         type="text"
-                        id="Username"
-                        placeholder="User name"
-                        onChange={e => setUsername(e.target.value)}
-                        value={username}
+                        id="UserEdit"
+                        placeholder="New data"
+                        onChange={e => setNew(e.target.value)}
+                        value={newdata}
                     />
                 </div>
                 <div>
-                    <label htmlFor="Usertype">Enter status level to change to</label>
+                    <label htmlFor="Username">Enter the username of the user to be updated</label>
                     <input
-                        type="number"
-                        placeholder="User Type"
+                        type="text"
+                        placeholder="User Name"
                         id="Usertype"
-                        onChange={e => setUsertype(e.target.value)}
-                        value={usertype}
+                        onChange={e => setUsername(e.target.value)}
+                        value={username}
                     />
-                    <small>1 = verified user, 2 = admin</small><br></br>
+                    <small>(for user type updates 1 = verified user, 2 = admin)</small><br></br>
                 </div>
                 <div>
                     <button>Update User</button>
                 </div>
             </form>
-            {(userList && userList.data) ? <TableView data={userList.data} /> : <TableView data={[{ "Notice": "no data to display" }]} />}
         </Layout>
     );
 }
