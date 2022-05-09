@@ -24,6 +24,11 @@ export default function Farm() {
           <a>Delete Farm</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/update-farm">
+          <a>Update Farm</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );
