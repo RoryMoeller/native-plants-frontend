@@ -43,13 +43,13 @@ function Farms() {
             <form onSubmit={updateFarm}>
             <div className="radios">
                 <p>Please select what info to change</p>
-            <label class="container">Email
+            <label className="container">Email
                 <input type="radio" name="rate" value="contact_email" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Phone Number
+            <label className="container">Phone Number
                 <input type="radio" name="rate" value="contact_phone_number" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             </div>
                 <div>

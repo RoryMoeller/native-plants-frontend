@@ -44,25 +44,25 @@ function Farms() {
             <form onSubmit={updateUser}>
             <div className="radios">
                 <p>Please select what info to change</p>
-            <label class="container">Real name (not user name)
+            <label className="container">Real name (not user name)
                 <input type="radio" name="rate" value="name" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Email
+            <label className="container">Email
                 <input type="radio" name="rate" value="email" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Website
+            <label className="container">Website
                 <input type="radio" name="rate" value="website" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Phone Number
+            <label className="container">Phone Number
                 <input type="radio" name="rate" value="phone_number" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Role Type
+            <label className="container">Role Type
                 <input type="radio" name="rate" value="user_role_type" onClick={e => setCol(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             </div>
                 <div>

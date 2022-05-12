@@ -107,7 +107,7 @@ function SeedCol() {
                     />
             </div>
             <div>
-                <p>Code for existing species (if a species of that code doesn't exist in the database this will not work)</p>
+                <p>Code for existing species (if a species of that code does not exist in the database this will not work)</p>
                 <input
                     type="text"
                     placeholder="Species Code"
@@ -134,17 +134,17 @@ function SeedCol() {
                     />
             </div>
             <p>How was the seed Identified</p>
-            <label class="container">Dichotomous key
+            <label className="container">Dichotomous key
                 <input type="radio" name="key" value="GK" onClick={e => setMethod(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Diagnostic Characteristics
+            <label className="container">Diagnostic Characteristics
                 <input type="radio" name="key" value="GC" onClick={e => setMethod(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Gist
+            <label className="container">Gist
                 <input type="radio" name="key" value="GI" onClick={e => setMethod(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             <div>
                 <input
@@ -156,21 +156,21 @@ function SeedCol() {
             </div>
             <div className="radios">
                 <p>Please rate how well the seed was cleaned</p>
-            <label class="container">Great
+            <label className="container">Great
                 <input type="radio" name="rate" value="a" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Good
+            <label className="container">Good
                 <input type="radio" name="rate" value="b" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">Fair
+            <label className="container">Fair
                 <input type="radio" name="rate" value="c" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">None
+            <label className="container">None
                 <input type="radio" name="rate" value="z" onClick={e => setClean(e.target.value)}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
             </div>
             <div>
