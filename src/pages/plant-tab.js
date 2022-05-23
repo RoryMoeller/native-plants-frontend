@@ -26,12 +26,12 @@ export default function Farm() {
       </li>
       <li className={styles.linkstyle}>
         <Link href="/add-seed-col">
-          <a>Add seed Colleciton</a>
+          <a>Add seed Collection</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
         <Link href="/get-seed-col">
-          <a>Get seed Collecitons</a>
+          <a>Get seed Collections</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
