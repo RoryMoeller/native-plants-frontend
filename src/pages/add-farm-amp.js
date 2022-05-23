@@ -17,7 +17,7 @@ function FarmAmp() {
 
     async function getData(){
         const reqData = {}
-        let query = "/api/accessBackend?query_string=SELECT * from rev2.users WHERE usre_name LIKE '" +harvestOwner+ "'"
+        let query = "/api/accessBackend?query_string=SELECT * from rev2.users WHERE user_name LIKE '" +harvestOwner+ "'"
         let res = await fetch(query,
             {
                 method: 'GET',
@@ -35,7 +35,7 @@ function FarmAmp() {
             return {owner:NULL}
         }
 
-        query = "/api/accessBackend?query_string=SELECT * from rev2.farms WHERE collection_site_name LIKE '" +farmName+ "'"
+        query = "/api/accessBackend?query_string=SELECT * from rev2.farms WHERE farm_name LIKE '" +farmName+ "'"
         res = await fetch(query,
             {
                 method: 'GET',
@@ -58,10 +58,12 @@ function FarmAmp() {
     async function postFarmAmp(e) {
         e.preventDefault();
         const data = await getData()
-        if ((data.owner == NULL)||(data.farmData == NULL))
+        if ((!data.owner)||(!data.farmData))
             return 
-        if (idname == "")
-            setIdName("NULL")
+        console.log('here')
+        const FNAME = "'" +farmName + "'"
+        const HOWNER = "'" +harvestOwner+ "'"
+        const NOTE = "'" +notes+ "'"
         const res = await fetch('/api/accessBackend', {
             method: 'POST',
             body: JSON.stringify( {
@@ -107,7 +109,7 @@ function FarmAmp() {
                     />
             </div>
             <div>
-            <p>Field Size</p>
+            <p>Field Size in acres (whole number)</p>
                 <input
                     type="text"
                     placeholder="Field Size"
