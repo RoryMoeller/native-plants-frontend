@@ -29,6 +29,16 @@ export default function Farm() {
           <a>Update Farm</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/add-farm-amp">
+          <a>Add Amplification</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/get-farm-amp">
+          <a>See Amplification</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );

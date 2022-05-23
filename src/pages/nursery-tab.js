@@ -24,6 +24,16 @@ export default function Farm() {
           <a>Delete Nursery</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/add-nursery-production">
+          <a>Add Production</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/get-nursery-production">
+          <a>See Production</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );
