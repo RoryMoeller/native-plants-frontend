@@ -41,6 +41,11 @@ export default function Navbar() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
+        <Link href="/stand-tab">
+          <a>Stand</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
         <Link href="/admin">
           <a onClick={() => setFmode(s => !s)}>Admin</a>
         </Link>
