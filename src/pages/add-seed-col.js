@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import styles from '../components/Navbar.module.css'
+import Link from 'next/link';
 
 function SeedCol() {
     const [cleanWeight, setCleanWeight] = useState("");
@@ -115,6 +116,13 @@ function SeedCol() {
                     value={speccode}
                     />
             </div>
+            <ul>
+            <li>
+            <Link href="/get-plants">
+                <a target="_blank">Click here to see all plants/codes in new tab</a>
+            </Link>
+            </li>
+            </ul>
             <div>
             <p>Collection Date (format YYYY-MM-DD you DO type the dashes)</p>
                 <input
