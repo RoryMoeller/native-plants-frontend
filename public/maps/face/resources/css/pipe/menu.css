@@ -1,0 +1,470 @@
+
+#searchpanel {
+    width: 280px;
+    height: 50px;
+    top: 1.3em;
+    position: absolute;
+    left: 4em;
+}
+
+.ibuttons{
+    top: 1em; 
+    right: 3em; 
+    position: absolute;
+}
+.ibuttons>div{
+    float: left;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 28px;
+    height: 28px;
+}
+.ibuttons>div>div{
+	cursor: default;
+    border: 0px;
+    background-color : rgba(51,51,51,.5);
+    width:100%;
+    height:100%;
+}
+.ibuttons>div>div:hover {
+	cursor: pointer;
+    border: 2px solid #ffffff;
+}
+.ibuttons img {
+	width: 100%;
+    height: 100%;
+}
+
+#citybox {
+    top: 1.3em;
+    left: 18em;
+    z-index: 1100;
+    border-top-left-radius: 3px; 
+    box-shadow: 0 2px 2px rgba(0,0,0,.15);
+    position: absolute;
+    color: #fff;
+}
+#citybox, #citybox .city-title {
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+/*#citybox .city-title.active, #citybox .city-title:hover {
+    color: #126EBD;
+}*/
+
+#citybox .city-title {
+    padding: 8px 8px;
+    background: rgba(119,152,183,0.8);
+    cursor: pointer;
+    display: inline-block;
+    min-width: 36px;
+    height: 15px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    font-size: 13px;
+}
+.city-title b{
+    padding-right: 6px;
+}
+#citybox .city-title .iconfont {
+    font-size: 12px;
+    display: inline-block;
+}
+
+
+#rtquery, #query{
+    margin: 2px;
+    width: 36px;
+}
+#beginRainTimebox,#endRainTimebox,#beginTemperTimebox,#endTemperTimebox,
+#beginWindDirctbox,#endWindDirctbox,
+#beginWindSpeed,#endWindSpeed, 
+#beginATMOSPRS,#endATMOSPRS,
+#beginHUMD,#endHUMD{
+    width:160px
+}
+
+#gridpipePanel{
+    width: 390px; 
+    height: 50px; 
+    position: absolute; 
+    top: 1em;
+    right: 2em;
+    /* display:none; */
+}
+
+
+
+#layerswitchPanel {
+    width: 390px;
+    height: 50px;
+    position: absolute;
+    top: 4em;
+    right: 2em;
+    display:none;
+}
+
+#provincePowerGridDiv{
+    width:100%; 
+    height:135px; 
+    padding-left: 7px; 
+    overflow:auto;
+}
+
+
+/*Layer management component  */
+.pipeTypeTable:hover, .deviceTypeTable:hover, .allPipeGrid, .allPipeGrid:hover, .provName, .provName:hover, .cityName, .cityName:hover
+{
+   background: rgba(15,137,245,0);
+}
+
+/*Menu panel*/
+#app-right-top {
+    z-index: 4;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+#tool-container {
+    float: right;
+    margin-right: 6px;
+}
+
+.ui3-control-wrap {
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ui3-control-wrap #tuceng-box,.ui3-control-wrap #typhoon-box {
+    display: block;
+    float: left;
+    border-radius: 2px;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, .15);
+}
+.ui3-control-wrap #tuceng-box .adjustpadding,.ui3-control-wrap #trendControl .trafficbo,.ui3-control-wrap #typhoon-box .adjustpadding,.ui3-control-wrap #ui3_city_change .adjustpadding{
+    float: left;
+    width: 5px;
+    height: 34px;
+    border-radius: 2px 0 0 2px;
+    padding-left: 7px;
+    background: #fff;
+
+}
+.ui3-control-wrap .citychangeopt:hover,.ui3-control-wrap .traffic-box-text:hover ,.ui3-control-wrap .typhoon-box-text:hover,.ui3-control-wrap .tuceng-box-text:hover,.ui3-control-wrap .boxopt:hover  {
+    color: #579AFC;
+}
+.ui3-control-wrap .ui3-city-change-inner {
+    display: inline-block;
+    padding-right: 12px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #fff;
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+    vertical-align: middle;
+    position: relative;
+}
+a {
+    color: #00c;
+    text-decoration: underline;
+    outline: 0;
+    cursor: pointer;
+}
+.ui3-control-wrap .ui3-city-change-inner span {
+    font-size: 12px;
+    float: left;
+}
+.ui3-control-wrap .ui3-city-change-inner em {
+    width: 7px;
+    height: 7px;
+    margin-left: 5px;
+    float: left;
+    margin-top: 13px;
+    background-image: url(../../images/clearfixs.png);
+    background-repeat: no-repeat;
+    background-position: -13px -17px;
+}
+
+em {
+    font-style: italic;
+}
+
+.ui3-control-wrap .left, .ui3-control-wrap .right {
+    height: 34px;
+    background: #fff;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+
+.float-l {
+    float: left;
+}
+
+.ui3-control-wrap .boxopt,.ui3-control-wrap .typhoonopt {
+    padding-right: 12px;
+    line-height: 34px;
+    float: left;
+    display: block;
+    cursor: pointer;
+}
+
+.ui3-control-wrap .left span, .ui3-control-wrap .right span {
+    float: left;
+    height: 34px;
+    width: 29px;
+    background-image: url(../../images/clearfixs.png);
+    background-repeat: no-repeat;
+}
+
+.ui3-control-wrap .last {
+    border: 0!important;
+}
+
+.ui3-control-wrap .traffic {
+    background-position: 1px -114px;
+}
+
+.ui3-control-wrap i {
+    float: left;
+    font-size: 10px;
+    font-style: normal;
+    height: 34px;
+    line-height: 34px;
+    color: #666;
+    display: block;
+}
+
+.ui3-control-wrap .left span.active, .ui3-control-wrap .right span.active {
+    background-color: #fff;
+}
+
+.ui3-control-wrap .boxutils {
+    padding-right: 7px;
+    background-position: -24px -97px;
+}
+
+.ui3-control-wrap .boxopt:hover .boxutils {
+    padding-right: 7px;
+    background-position: -24px -30px;
+}
+
+.ui3-control-wrap .boxutils.active {
+    background-position: -24px -30px;
+}
+.ui3-control-wrap .map-measure:hover i {
+    color: #579AFC;
+}
+.ui3-control-wrap .map-area:hover i {
+    color: #579AFC;
+}
+.ui3-control-wrap .map-mark:hover i {
+    color: #579AFC;
+}
+.ui3-control-wrap i.active {
+    color: #579AFC;
+}
+
+.ui3-city-change-inner:hover {
+    color: #579AFC;
+}
+.ui3-control-wrap .boxopt:hover i {
+    color: #579AFC;
+}
+
+.ui3-control-wrap .tuceng-box-text:hover {
+    color: #579AFC;
+}
+
+
+.ui3-control-wrap .boxopt em.active {
+    background-position: -12px -177px;
+}
+.ui3-control-wrap .typhoonopt em {
+    width: 7px;
+    height: 7px;
+    float: left;
+    margin-top: 13px;
+    margin-left: 5px;
+    background-image: url(../../images/clearfixs.png);
+    background-repeat: no-repeat;
+    background-position: -13px -17px;
+}
+
+.ui3-control-wrap .boxopt em {
+    width: 7px;
+    height: 7px;
+    float: left;
+    margin-top: 13px;
+    margin-left: 5px;
+    background-image: url(../../images/clearfixs.png);
+    background-repeat: no-repeat;
+    background-position: -13px -17px;
+}
+
+element.style {
+    display: block;
+}
+
+.ui3-control-wrap .detail-box{
+    position: absolute;
+    width: 95px;
+    background: #fff;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+    top: 34px;
+    right: 0;
+    float: left;
+    display: none;
+    z-index: 80000;
+}
+.ui3-control-wrap .meteorology-box {
+    position: absolute;
+    width: 60px;
+    background: #fff;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+    top: 34px;
+    right: 95px;
+    float: left;
+    display: none;
+    z-index: 80000;
+}
+
+.ui3-control-wrap .boxinfo {
+    list-style-type: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+form, p, ol, ul, li, dl, dt, dd, h1, h2, h3, h4, tr, th, td, input {
+    margin: 0;
+    padding: 0;
+}
+
+.ui3-control-wrap .boxinfo li .ui3-control-wrap .boxcontrol li {
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 7px;
+}
+
+.ui3-control-wrap .boxinfo li .measure {
+    background-position: -66px -97px;
+}
+.ui3-control-wrap .map-measure:hover .measure{   
+    background-position: -66px -30px;
+}
+
+.ui3-control-wrap .last {
+    border: 0!important;
+}
+
+.ui3-control-wrap .boxinfo li i .ui3-control-wrap .boxcontrol li i {
+    margin-left: 2px;
+}
+
+.ui3-control-wrap .boxinfo li .mark {
+    background-position: -99px -100px;
+}
+.ui3-control-wrap .map-mark:hover .mark {
+    background-position: -103px -32px;
+}
+.ui3-control-wrap .boxinfo li .share {
+    background-position: -150px -97px;
+}
+.ui3-control-wrap .map-area:hover .share {
+    background-position: -150px -30px;
+}
+
+.ui3-control-wrap .traffic.active {
+    background-position: 1px -49px;
+}
+
+.none-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ui3-control-wrap .tuceng-box-text span, .ui3-control-wrap .typhoon-box-text span {
+    font-size: 12px;
+    float: left;
+}
+.ui3-control-wrap .tuceng-box-text{
+    display: inline-block;
+    padding-right: 12px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #fff;
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+    vertical-align: middle;
+    position: relative;
+}
+
+.ui3-control-wrap .tucengopt b,.ui3-control-wrap .left b ,.ui3-control-wrap .right b.ui3-control-wrap .typhoonopt b,.ui3-control-wrap .boxopt b{
+    float: left;
+    height: 21px;
+    display: block;
+    border-right: 1px solid #eee;
+    top: 7px;
+    position: absolute;
+}
+.ui3-control-wrap #ui3_city_change {
+    display: block;
+    float: left;
+    border-radius: 2px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+.layui-collapse {
+    background-color:#FFFFFF;
+    top: 20px;
+    right: 10px;
+   
+} 
+
+.ui3-control-wrap .trafficopt {
+    padding-right: 12px;
+    line-height: 34px;
+    float: left;
+    display: block;
+    cursor: pointer;
+}
+.ui3-control-wrap .boxcontrol li {
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 21px;
+}
+
+.ui3-control-wrap .boxinfo li  {
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 12px;
+}
+
+.ui3-control-wrap .traffic-box {
+    position: absolute;
+    width: 70px;
+    background: #fff;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+    top: 34px;
+    right: 155px;
+    float: left;
+    display: none;
+    z-index: 80000;
+}
+

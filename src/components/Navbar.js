@@ -50,6 +50,11 @@ export default function Navbar() {
           <a onClick={() => setFmode(s => !s)}>Admin</a>
         </Link>
       </li>
+	  <li className={styles.linkstyle}>
+        <Link href="/map">
+          <a>Map</a>
+        </Link>
+      </li>
       </ul>
       </center>
     </div>
