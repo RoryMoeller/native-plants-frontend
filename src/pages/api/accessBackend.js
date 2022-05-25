@@ -6,11 +6,19 @@ async function accessBackend(req, res) {
     console.log("req:", req)
 
     if (!session) {
-        res.status(401).send("You are not logged in!");
+        res.status(401).send({"error": "You are not logged in!"});
+        return;
+    } else if (session.user.user_level < 1) {
+        res.status(401).send({"error": "You do not have permission to access this page!\nAsk an admin to approve your account."});
+        return;
+    }else if (session.user.user_level < 2 && req.body.query_type && req.body.query_type =="UPDATE" && 
+    req.body.query_fields && req.body.query_fields.length > 0 && req.body.query_fields[0]=="user_role_type") {
+        res.status(401).send({"error": "You do not have permission to access this page!\nAsk an admin to approve your account."});
         return;
     }else {
         console.log("== Logged in with these credentials:", session.user.username, session.user.password);
-    }
+        console.log("== Session:", session)
+    } 
 
     async function fetchPostRes(url, body) {
         console.log("Fetching from " + url);
@@ -21,7 +29,8 @@ async function accessBackend(req, res) {
                 'Accept': '*/*',
                 'Access-Control-Allow-Origin': '*',
                 'Accept-Encoding': 'gzip, deflate, br',
-                "Connection": "keep-alive"
+                "Connection": "keep-alive",
+                "Authentication": process.env.DATABASE_KEY
             },
             body: JSON.stringify(body)                
         });
@@ -40,7 +49,8 @@ async function accessBackend(req, res) {
                 'Accept': '*/*',
                 'Access-Control-Allow-Origin': '*',
                 'Accept-Encoding': 'gzip, deflate, br',
-                "Connection": "keep-alive"
+                "Connection": "keep-alive",
+                "Authentication": process.env.DATABASE_KEY
             }
         });
         const resBody = await res.json();
@@ -66,7 +76,13 @@ async function accessBackend(req, res) {
                 "Connection": "keep-alive"
             }
         }).then(() => {console.log(`ready to push ${query_string} to backend`)});
-        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
+        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string, {
+            method: "GET",
+            headers: {
+                "Connection": "keep-alive",
+                "Authentication": process.env.DATABASE_KEY
+            }
+        }).then(resBody => {
             console.log("== resBody:", resBody);
             res.status(200).send({
                 msg: "OK!"
@@ -110,7 +126,101 @@ async function accessBackend(req, res) {
         
 
 
+    } else if (req.method === "DELETE") {
+        console.log("query_values:", req.body.query_values);
+        const table_name = "rev2." + req.body.table_name;
+        const query_type = req.body.query_type;
+        if (query_type !== "DELETE") {
+            res.status(405).send({ err: "Only DELETE queries supported" })
+        }
+        const query_fields = req.body.query_fields.join(", ");
+
+        const query_values = req.body.query_values;
+        const format_holders = req.body.query_fields.map(_x => `%s`);
+        const query_string = "DELETE FROM " + table_name + ` WHERE ${query_fields}=%s/` + query_values[0];
+        console.log("== query_string:", query_string);
+        await fetch("https://native-plants-backend.herokuapp.com/wake_me_up", {
+            method: "GET",
+            headers: {
+                "Connection": "keep-alive"
+            }
+        }).then(() => {console.log(`ready to push ${query_string} to backend`)});
+        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
+            console.log("== resBody:", resBody);
+            res.status(200).send({
+                msg: "OK!"
+            });
+        }).catch(err => {
+            console.log("== err:", err);
+            res.status(500).send({
+                err: "Error accessing backend"
+            });
+        });
+        // res.status(501).send({ err: "Something went wrong" });
+    } else if (req.method === "PATCH") {
+        console.log("query_values:", req.body.query_values);
+        const table_name = "rev2." + req.body.table_name;
+        const query_type = req.body.query_type;
+        if (query_type !== "UPDATE") {
+            res.status(405).send({ err: "Only UPDATE queries supported" })
+        }
+        const query_fields = req.body.query_fields;
+        const clauses = ""
+        
+        const query_values = req.body.query_values;
+        const format_holders = req.body.query_fields.map(_x => `%s`);
+        const query_string = "UPDATE " + table_name + ` SET ${query_fields[0]}=%s WHERE ${query_fields[1]}=%s/` + query_values.join(",");
+        console.log("== query_string:", query_string);
+        await fetch("https://native-plants-backend.herokuapp.com/wake_me_up", {
+            method: "GET",
+            headers: {
+                "Connection": "keep-alive"
+            }
+        }).then(() => {console.log(`ready to push ${query_string} to backend`)});
+        await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
+            console.log("== resBody:", resBody);
+            res.status(200).send({
+                msg: "OK!"
+            });
+        }).catch(err => {
+            console.log("== err:", err);
+            res.status(500).send({
+                err: "Error accessing backend"
+            });
+        });
+        // res.status(501).send({ err: "Something went wrong" });
+    }else if (req.method === "PUT") {
+    console.log("query_values:", req.body.query_values);
+    const table_name = "rev2." + req.body.table_name;
+    const query_type = req.body.query_type;
+    if (query_type !== "UPDATE") {
+        res.status(405).send({ err: "Only UPDATE queries supported" })
     }
+    const query_fields = req.body.query_fields;
+
+    const query_values = req.body.query_values;
+    const format_holders = req.body.query_fields.map(_x => `%s`);
+    const query_string = "UPDATE " + table_name + ` SET ${query_fields[0]}=%s WHERE ${query_fields[1]}=%s AND ${query_fields[2]}=%s AND ${query_fields[3]}=%s AND ${query_fields[4]}=%s/` + query_values.join(",");
+    console.log("== query_string:", query_string);
+    await fetch("https://native-plants-backend.herokuapp.com/wake_me_up", {
+        method: "GET",
+        headers: {
+            "Connection": "keep-alive"
+        }
+    }).then(() => {console.log(`ready to push ${query_string} to backend`)});
+    await fetchGetRes("https://native-plants-backend.herokuapp.com/ig/" + query_string).then(resBody => {
+        console.log("== resBody:", resBody);
+        res.status(200).send({
+            msg: "OK!"
+        });
+    }).catch(err => {
+        console.log("== err:", err);
+        res.status(500).send({
+            err: "Error accessing backend"
+        });
+    });
+    // res.status(501).send({ err: "Something went wrong" });
+}
 }
 
 export default accessBackend;

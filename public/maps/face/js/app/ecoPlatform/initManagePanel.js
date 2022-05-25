@@ -49,7 +49,7 @@ function initOSBPanel()
 				var ds =i;
 				var fid  = fidArr[i];
 	        	var row = parseInt(i/3);
-	        	if(i%3==0){//第二行第一格空着
+	        	if(i%3==0){//The first space of the second line is empty
 	        		tr = "<tr id= 'allpg"+ row +"'  style='width: 100%;'></tr>";   
 	        		$("#allPipeGrid").append(tr);
 	        		// var td = "<td></td>" ;
@@ -86,7 +86,7 @@ function allPipeGridClick(e){
 		$(".allPipeGrid").linkbutton('unselect');
 		$("#" + pipeGrid).linkbutton('select');
 
-		//在地图上高亮显示该区级范围
+		//Highlight the area on the map
 		var layers = commonMap.IBase.getLayerByProperty(ecoMap,'title','OSB');
 		var OSBId = e.target.parentElement.parentElement.id;
 		var gridFeatures = locateGridRegion(ecoMap, layers[0], OSBId);

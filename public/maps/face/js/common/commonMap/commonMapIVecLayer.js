@@ -75,6 +75,38 @@ commonMap.IVecLayer.initVecLayerFromREST = function(url, layerName, layerStyle, 
     return layer;
 }
 
+commonMap.IVecLayer.initVecLayerFromREST2 = function(url, layerName, layerStyle, map)
+{
+   var layer = new ol.layer.Vector({
+		title: layerName,
+		displayInLayerSwitcher:false,
+		source:  new ol.source.Vector({}),
+        	style: layerStyle
+        }); 
+    map.addLayer(layer);
+	//Request coordinate data
+	if(url!=null && url!=""){
+		$.ajax({
+			type : "GET",
+			url : url,
+			dataType : "json", 
+			success : function(result){
+				if(result.features!=null){
+					var features = (new ol.format.GeoJSON()).readFeatures(result,{
+						dataProjection: 'EPSG:26910',
+						featureProjection: 'EPSG:26910'
+					});
+					layer.getSource().addFeatures(features);
+				}
+			},
+			error : function(xhr){
+				console.log(url + "");
+			}
+		});	
+	}
+    return layer;
+}
+
 commonMap.IVecLayer.addFeaturesToLayerFromRequest = function(url, layer)
 {
 	$.ajax({

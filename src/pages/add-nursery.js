@@ -5,6 +5,7 @@ import styles from '../components/Navbar.module.css'
 function AddNursery() {
     const [nurseryname, setNurseryname] = useState("");
     const [email, setEmail] = useState("");
+    const [number, setnumber] = useState("");
 
     async function postNursery(e) {
         e.preventDefault();
@@ -15,8 +16,8 @@ function AddNursery() {
             body: JSON.stringify( {
                 table_name: "nurseries",
                 query_type: "INSERT",
-                query_fields: ['nursery_name','contact_email'],
-                query_values: [nurseryname, email]
+                query_fields: ['nursery_name','contact_email','contact_phone_number'],
+                query_values: [nurseryname, email, number]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -48,9 +49,13 @@ function AddNursery() {
                     />
             </div>
             <div>
-                <label for="phone">Enter Nursery phone number:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
-                <small>Format: 123-456-7890</small><br></br>
+                <label htmlFor="phone">Enter Nursery phone number:</label>
+                <input type="tel" 
+                id="phone" 
+                name="phone" 
+                pattern="[0-9]{10,11}" 
+                onChange={e => setnumber(e.target.value)}/>
+                <small>Format: 1234567890</small><br/>
             </div>
             <div>
                 <button>Add Nursery</button>

@@ -30,16 +30,18 @@ function Map() {
 
     return (
         <Layout>
-        <form className={styles.containerMap}> 
-            <div>
+      
+            <div className={styles.containerMap}>
                 <iframe
                     id="frame-gis"
                     src="/maps/face/OSMmap.html"
-                    width="1100px"
-                    height="600px"
+                    //width="1100px"
+                    // height="600px"
+					width="100%"
+                    height="100%"
                   ></iframe>             
             </div>
-        </form>
+
         </Layout>
     );
 }

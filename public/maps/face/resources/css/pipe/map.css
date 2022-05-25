@@ -26,7 +26,7 @@ body {
     left: -50px;
     /*min-width: 280px;*/
     opacity: 0.9;
-    overflow: unset;  /*heyuan add 覆盖ol-ext的影响*/
+    overflow: unset;
   }
   .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -306,7 +306,7 @@ body {
 }
 
 
-/* 列表样式 */
+/* List style */
 .listBox{
 	width:400px;
 	height:500px;
@@ -343,7 +343,7 @@ body {
 	text-align:center;
 	font-size:14px;
 }
-/* 表格样式 */
+/* Table style */
 .listBox .layui-table td, 
 .listBox .layui-table th,
 .listBox .layui-table-col-set, 
@@ -499,31 +499,3 @@ body {
 border: 1px solid #ffffff;
 */
 
-/* 用split-pane的时候写的
-#left-component {
-    right: 60%;
-    margin-right: 2px;
-}
-
-#my-divider {
-    right: 60%;
-    width: 1px;
-}
-
-#right-component {
-    width: 60%;
-}
-
-#top-component2 {
-    bottom: 40%;
-    margin-bottom: 2px;
-}
-
-#horizontal-divider2 {
-    bottom: 40%;
-    height: 2px;
-}
-
-#bottom-component2 {
-    height: 40%;
-}*/

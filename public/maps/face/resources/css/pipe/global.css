@@ -1,7 +1,6 @@
+/* Layout */
 
-/* layout */
-
-/* head */
+/* Head */
 admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  background-color: #30457E}
 
 .header .layui-nav{position: absolute; right: 0; top: 0; padding: 0; background: none;}
@@ -28,18 +27,18 @@ admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  backg
 .header-demo .layui-nav-bar{background-color: #393D49;}
 .header-demo .layui-nav .layui-this a{padding: 0 20px;}
 
-/* bottom */
+/* Bottom */
 
 .layui-anim-scaleSpring{-webkit-animation-name: layui-scale-spring; animation-name: layui-scale-spring}
 
-/* demonstration */
+/* Demonstration */
 .layui-nav-item .layui-icon{position: relative; /*font-size: 20px;*/}
 .layui-nav-item a cite{padding: 0 10px;}
 
 .layui-layout-admin .site-demo-body{top: 117px;}
 
 
-/* other */
+/* Other */
 #trans-tooltip,
 #tip-arrow-bottom,
 #tip-arrow-top{display: none !important;}
@@ -53,7 +52,7 @@ admin-side-toggle .header{height: 65px; border-bottom: 1px solid #404553;  backg
 .alone li a{display:block; color:#fff;}
 
 
-/* customcss */
+/* Custom CSS */
 .admin-header-item-mobile{
 	position: absolute; right: 0px; height: 70px;line-height: 70px; 
 	padding: 0 20px; text-align: center; top:0;

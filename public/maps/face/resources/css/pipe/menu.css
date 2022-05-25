@@ -75,55 +75,6 @@
 }
 
 
-/* 登录用户 */
-.layui-header {
-    position: relative;
-    z-index: 1000;
-    height: 60px;
-}
-.layui-nav-bar {
-    background-color: transparent;
-}
-.layui-nav .layui-this:after {
-    background-color: transparent;
-}
-#loginbox {
-    position: absolute;
-    top: 1em;
-    right: 6em;
-    background: none;
-    padding: 0 6px 0;
-}
-#loginshow{
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 40px;
-    margin: 1.35em 0 0 0;
-    line-height: 28px;
-    border-radius: 3px;
-    background: rgba(119,152,183,0.8);
-}
-#loginshow a{
-    padding-left: 5px;
-    padding-right: 8px;
-}
-#loginicon{
-    background: url(../img/menu/yonghu.png) no-repeat center 10px;
-}
-#loginbox {
-    background-color: transparent;
-}
-#loginpng{
-    font-size: 20px;
-    vertical-align: middle;
-    padding-right: 5px;
-}
-
-
-
-
-
 #rtquery, #query{
     margin: 2px;
     width: 36px;
@@ -164,13 +115,13 @@
 }
 
 
-/*图层管理组件  */
+/*Layer management component  */
 .pipeTypeTable:hover, .deviceTypeTable:hover, .allPipeGrid, .allPipeGrid:hover, .provName, .provName:hover, .cityName, .cityName:hover
 {
    background: rgba(15,137,245,0);
 }
 
-/*菜单面板*/
+/*Menu panel*/
 #app-right-top {
     z-index: 4;
     position: absolute;

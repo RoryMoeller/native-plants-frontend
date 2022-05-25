@@ -859,7 +859,7 @@ var ecoL4Style = function (feature, resolution, select) {
     },
     text: new ol.style.Text({
       overflow: true,
-      text: feature.get('US_L4CODE') ? feature.get('US_L4CODE') : '',
+      text: feature.get('US_L4NAME') ? feature.get('US_L4NAME') : '',
       fill: new ol.style.Fill({
         color: '#000'
       }),
@@ -952,7 +952,7 @@ var gridStyle = function (feature, resolution, select) {
   });
   var label = feature.get('value') ? feature.get('value') : '';
   var textStyle = new ol.style.Style({
-    geometry: function (feature) { //对multipolygon仅标注最大的多边形
+    geometry: function (feature) { //For multipolygon, only the largest polygon is labeled
       var geometry = feature.getGeometry();
       if (geometry.getType() == 'MultiPolygon') {
         var polygons = geometry.getPolygons();
@@ -970,7 +970,7 @@ var gridStyle = function (feature, resolution, select) {
     },
     text: new ol.style.Text({
       overflow: true,
-      text: feature.get('US_L3CODE') ? feature.get('US_L3CODE') : '',
+      text: feature.get('US_L3CODE') ? feature.get('US_L3NAME') : '',
       fill: new ol.style.Fill({
         color: '#000'
       }),
@@ -1033,6 +1033,51 @@ var ecoStyle = function (feature, resolution, select) {
   });
   return [shadowStyle, countryStyle,textStyle];
 }
+
+
+var collectionStyle = function (feature, resolution, select) {
+
+  var site_name = feature.get('site_name');
+  var zoom = ecoMap.getView().getZoom();
+
+  var style = new ol.style.Style({
+    image: new ol.style.Icon({
+      src: 'resources/img/marker.png',
+      opacity: 0.9,
+      scale: select ? 1.2 * 0.5 : 0.5
+    })
+  });
+  
+  let label = feature.get('site_name') ? decodeURIComponent(feature.get('site_name')): "";
+
+
+  let scale = 1;
+  if (resolution < 10 && resolution > 4) {
+    scale = 1.15;
+  } else if (resolution < 4 && resolution > 1) {
+    // zoom 16 --res 2.38; zoom 17--res 1.194 ;
+    scale = 1.3;
+  } else if (resolution < 1) {
+    //zoom18--res 0.597
+    scale = 1.4;
+  }
+  
+  let textStyle = new ol.style.Style({
+    text: new ol.style.Text({
+      text: label,
+      overflow: true,
+      textAlign: 'center', // 'left' 'right' 'center' 'end' 'start'
+      fill: new ol.style.Fill({
+        color: '#000',
+      }),
+      stroke: new ol.style.Stroke({ color: '#fff', width: 0.5 }),
+      offsetX: 0,
+      offsetY: 18,
+      scale: scale, //Annotation amplification of level 14 and above
+  })
+  });
+  return [style,textStyle];
+};
 
 var regionStyle = function (feature, resolution, select) {
   var shadowStyle = new ol.style.Style({

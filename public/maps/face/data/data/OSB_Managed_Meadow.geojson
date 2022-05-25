@@ -6,7 +6,7 @@
 			"name": "EPSG:4326"
 		}
 	},
-	"features": [
+	"features": [	
 		{
 			"type": "Feature",
 			"id": 1,

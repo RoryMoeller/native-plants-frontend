@@ -18,7 +18,8 @@ const config = {
     layerName: {
       OSB: "OSB",
       ecoL3: "ecoL3",
-      ecoL4: "ecoL4"
+      ecoL4: "ecoL4",
+      colletion: "colleciton"
     }
   },
 
@@ -77,6 +78,10 @@ const config = {
 
 config.URL = {
 
+  // ecoLayer: "./data/data/west_coast_eco_l4.geojson",
+  // OSBLayer: "./data/data/OSB_Managed_Meadow_Habitat.geojson",
+  // OSBLayer2: "./data/data/OSB_Managed_Meadow.geojson",
+  collectionLayer: "./data/data/ex_collection5.geojson",
   ecoLayer: "./data/data/west_coast_eco_l4.geojson",
   OSBLayer: "./data/data/OSB_Managed_Meadow_Habitat.geojson",
   OSBLayer2: "./data/data/OSB_Managed_Meadow.geojson",

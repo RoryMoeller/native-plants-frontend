@@ -16,13 +16,23 @@ export default function Navbar() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/add-farms">
-          <a>Add Farm</a>
+        <Link href="/farm-tab">
+          <a>Farm</a>
         </Link>
-      </li>  
+      </li>
       <li className={styles.linkstyle}>
-        <Link href="/get-farms">
-          <a>Get Farm</a>
+        <Link href="/lab-tab" className={styles.linkstyle}>
+          <a>Lab</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/plant-tab">
+          <a>Plants</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/nursery-tab">
+          <a>Nursery</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -31,18 +41,8 @@ export default function Navbar() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
-        <Link href="/get-labs" className={styles.linkstyle}>
-          <a>Get Labs</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/get-plants">
-          <a>Get Plants</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/forms">
-          <a>Forms</a>
+        <Link href="/stand-tab">
+          <a>Stand</a>
         </Link>
       </li>
       <li className={styles.linkstyle}>
@@ -50,25 +50,13 @@ export default function Navbar() {
           <a onClick={() => setFmode(s => !s)}>Admin</a>
         </Link>
       </li>
-      <li className={styles.linkstyle}>
+	  <li className={styles.linkstyle}>
         <Link href="/map">
           <a>Map</a>
         </Link>
       </li>
       </ul>
       </center>
-      <ul  className={Fmode ? 'hidden' : 'show'}>
-      <li className={styles.linkstyle}>
-        <Link href="/add-farm">
-          <a>Add Farm</a>
-        </Link>
-      </li>
-      <li className={styles.linkstyle}>
-        <Link href="/map">
-          <a>Map</a>
-        </Link>
-      </li>
-      </ul>
     </div>
   )
 }

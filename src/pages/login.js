@@ -24,8 +24,8 @@ function Login() {
 
     return (
         <Layout>
-        <form onSubmit={handleLogin}>
-            <div>
+         <form onSubmit={handleLogin}>
+                {/*<div>
                 <a>Username</a>
                 <input
                     type="text"
@@ -42,11 +42,12 @@ function Login() {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     />
-            </div>
+            </div> */}
             <div>
                 <button>Login</button>
             </div>
-        </form>
+        </form> 
+        <h3>Click this button to Login</h3>
         <div>
             <Link href="/sign-up">
             <a>Sign up</a>

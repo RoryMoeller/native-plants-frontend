@@ -21,14 +21,9 @@ function Plants() {
         var searchmid = '*'
         if (comname !=""){
             searchback = searchback + " Where common_name LIKE '" + comname + "'"
-            if (email !="")
-                searchback = searchback + " OR common_name Like '" + email + "'"
         }
-        else if (email != "")
-        searchback = searchback + " Where common_name LIKE '" + email + "'"
         let searchfinal = searchfront + searchmid + searchback
         console.log("== searching this: ", searchfinal);
-        //const res = await fetch('/api/accessBackend/https://native-plants-backend.herokuapp.com/i/INSERT INTO rev2.farms(farm_name) VALUES (%s) /'+farmname,{
         const res = await fetch(searchfinal,
             {
                 method: 'GET',
@@ -40,33 +35,32 @@ function Plants() {
         )
         const resBody = await res.json();
         console.log(resBody);
-        setPlantList(resBody.data)
+        if (res.status >= 200 && res.status < 400) {
+            setPlantList(resBody.data)
+        } else {
+            alert("Error: \n" + resBody.error)
+        }
     }
 
     return (
         <Layout>
             <form onSubmit={getPlants}>
                 <div>
-                    <input
-                        type="text"
-                        placeholder="Common name"
-                        onChange={e => setComname(e.target.value)}
-                        value={comname}
-                    />
+                    <a>Type here to filter, leave blank for no filter</a>
                 </div>
                 <div>
                     <input
                         type="text"
-                        placeholder="Email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        placeholder="Search by Common name"
+                        onChange={e => setComname(e.target.value)}
+                        value={comname}
                     />
                 </div>
                 <div>
                     <button>Get Plants</button>
                 </div>
             </form>
-            <TableView data={plantList.data} />
+            {(plantList && plantList.data) ? <TableView data={plantList.data} /> : <TableView data={[{ "Notice": "no data to display" }]} />}
         </Layout>
     );
 }

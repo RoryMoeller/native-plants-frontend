@@ -17,8 +17,8 @@ function Farms() {
             body: JSON.stringify( {
                 table_name: "farms",
                 query_type: "INSERT",
-                query_fields: ['farm_name','contact_email'],
-                query_values: [farmname, farmemail]
+                query_fields: ['farm_name','contact_email','contact_phone_number'],
+                query_values: [farmname, farmemail,farmnumber]
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -48,13 +48,13 @@ function Farms() {
                     />
             </div>
             <div>
-                <label for="phone">Enter Farm phone number:</label>
+                <label htmlFor="phone">Enter Farm phone number:</label>
                 <input type="tel" 
                 id="phone" 
                 name="phone" 
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                pattern="[0-9]{10,11}" 
                 onChange={e => setFarmnumber(e.target.value)}/>
-                <small>Format: 123-456-7890</small><br></br>
+                <small>Format: 1234567890</small><br/>
             </div>
             <div>
                 <button>Add Farm</button>
