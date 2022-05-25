@@ -33,6 +33,7 @@ textarea{
 ul {
   list-style: none;
   padding-top: 10px;
+  margin-bottom: 0;
   color: black;
   display: inline-block;
   background-color: #d9d9d9;
@@ -233,4 +234,9 @@ h1{
 	height: 8px;
 	border-radius: 50%;
 	background: white;
+}
+
+/* Embedded Map Page */
+iframe {
+  border: 0;
 }
