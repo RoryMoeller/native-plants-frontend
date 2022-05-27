@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
-import '../components/Navbar'
+import '../components/Navbar';
+import Link from 'next/link';
 
 import useAPIRequest from '../hooks/useAPIRequest';
 
@@ -17,10 +18,10 @@ function Plants() {
     async function getSeeds(e) {
         e.preventDefault();
         let searchfront = '/api/accessBackend?query_string=SELECT '
-        let searchback = ' FROM rev2.seed_collection'
-        var searchmid = 'collection_id, cleaned_weight, cleaning_effectiveness, collected_date, col_species_code, id_method, id_confidence, id_person_name'
-        if (comname !=""){
-            searchback = searchback + " Where species_code LIKE '" + speccode + "'"
+        let searchback = ' FROM rev2.testing_history'
+        var searchmid = '*'
+        if (speccode !=""){
+            searchback = searchback + " Where tested_collection = '" + speccode + "'"
         }
         let searchfinal = searchfront + searchmid + searchback
         console.log("== searching this: ", searchfinal);
@@ -51,13 +52,20 @@ function Plants() {
                 <div>
                     <input
                         type="text"
-                        placeholder="Search by Species Code"
+                        placeholder="Search by tested collection ID"
                         onChange={e => setSpecCode(e.target.value)}
-                        value={comname}
+                        value={speccode}
                     />
                 </div>
+                <ul>
+            <li>
+            <Link href="/get-seed-col">
+                <a target="_blank">Click here to see all seed collecitons in new tab</a>
+            </Link>
+            </li>
+            </ul>
                 <div>
-                    <button>Get Seeds</button>
+                    <button>Get Lab test data</button>
                 </div>
             </form>
             {(plantList && plantList.data) ? <TableView data={plantList.data} /> : <TableView data={[{ "Notice": "no data to display" }]} />}

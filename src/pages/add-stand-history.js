@@ -147,7 +147,7 @@ function Stand() {
                     />
             </div>
             <div>
-            <p>First Collected Date</p>
+            <p>First Collected Date (YYYY-MM-DD type the dashes)</p>
                 <input
                     type="text"
                     placeholder="First Date"
@@ -156,7 +156,7 @@ function Stand() {
                     />
             </div>
             <div>
-            <p>Last Collected Date</p>
+            <p>Last Collected Date (YYYY-MM-DD type the dashes)</p>
                 <input
                     type="text"
                     placeholder="Last Date"
