@@ -30,6 +30,16 @@ export default function Forms() {
         </Link>
       </li>
       <li className={styles.linkstyle}>
+        <Link href="/add-want-list">
+          <a>Add Request</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/get-want-list">
+          <a>Get Requests</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
         <Link href="/delete">
           <a>Delete</a>
         </Link>

@@ -24,6 +24,16 @@ export default function Lab() {
           <a>Delete Lab</a>
         </Link>
       </li>
+      <li className={styles.linkstyle}>
+        <Link href="/add-lab-test">
+          <a>Add Lab Test</a>
+        </Link>
+      </li>
+      <li className={styles.linkstyle}>
+        <Link href="/get-lab-test">
+          <a>Get Lab Test</a>
+        </Link>
+      </li>
     </ul>
         </Layout>
     );
