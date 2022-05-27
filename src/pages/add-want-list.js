@@ -44,7 +44,7 @@ function Sites() {
                     />
             </div>
             <div>
-            <p>Today's Date (YYYY-MM-DD DO type the dashes)</p>
+            <p>Today&apos;s Date (YYYY-MM-DD DO type the dashes)</p>
                 <input
                     type="text"
                     placeholder="Date"
@@ -78,7 +78,7 @@ function Sites() {
                     />
             </div>
             <div>
-            <p>Any notes (short sentances)</p>
+            <p>Any notes (short sentences)</p>
                 <input
                     type="text"
                     placeholder="Notes"
